@@ -1,0 +1,132 @@
+<style>
+    button {
+        margin: 10px 0;
+        padding: 8px 15px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+    #output, #resultadoInteracao, #elementoManipulado {
+        margin: 15px 0;
+        padding: 10px;
+        background-color: #f1f1f1;
+        border: 1px solid #ddd;
+    }
+    .highlight {
+        background-color: #d4edda;
+        border: 1px solid #c3e6cb;
+    }
+    img {
+        max-width: 100%;
+    }
+</style>
+
+<header>
+    <h2>JavaScript Completo</h2>
+</header>
+
+<p>Este guia apresenta uma visão completa de JavaScript, cobrindo desde variáveis, funções e condicionais até a interação avançada com o DOM e manipulação de eventos. Prepare-se para criar páginas interativas e dinâmicas com vários exemplos práticos.</p>
+
+<!-- Elementos Passíveis de Manipulação -->
+<section>
+    <h2>1. Elementos Passíveis de Manipulação com JavaScript</h2>
+    <article>
+        <p>Com JavaScript, você pode manipular quase todos os elementos da página. Abaixo estão alguns dos mais comuns:</p>
+
+        <ul>
+            <li>**Texto**: Cabeçalhos (<code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>), parágrafos (<code>&lt;p&gt;</code>), e elementos <code>&lt;span&gt;</code>.</li>
+            <li>**Imagens**: <code>&lt;img&gt;</code>, alterando <code>src</code> ou atributos de estilo.</li>
+            <li>**Botões**: <code>&lt;button&gt;</code>, eventos de clique e mudança de aparência.</li>
+            <li>**Inputs**: Campos de texto, senhas, checkboxes, radio buttons, entre outros.</li>
+            <li>**Listas**: <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code> e suas respectivas <code>&lt;li&gt;</code>.</li>
+            <li>**Divs**: Contêineres gerais com IDs e classes específicas.</li>
+            <li>**Links**: <code>&lt;a&gt;</code>, alterando o <code>href</code> e o comportamento.</li>
+        </ul>
+    </article>
+</section>
+
+<!-- Manipulação de Texto -->
+<section>
+    <h2>2. Manipulação de Texto</h2>
+    <article>
+        <p>Podemos manipular texto de cabeçalhos, parágrafos e elementos de texto embutidos como <code>&lt;span&gt;</code>.</p>
+        <h3>Exemplo de Manipulação de Cabeçalhos</h3>
+        <button id="alterarTitulo">Alterar Título</button>
+        <h1 id="tituloPrincipal">Título Original</h1>
+    </article>
+</section>
+
+<!-- Manipulação de Imagens -->
+<section>
+    <h2>3. Manipulação de Imagens</h2>
+    <article>
+        <p>Podemos alterar a fonte da imagem (<code>src</code>) ou manipular suas propriedades de estilo.</p>
+        <h3>Exemplo de Alteração de Imagem</h3>
+        <img id="minhaImagem" src="./img/1.png" alt="Imagem de exemplo">
+        <button id="alterarImagem">Alterar Imagem</button>
+        <button id="alterarEstiloImagem">Alterar Estilo da Imagem</button>
+    </article>
+</section>
+
+<!-- Manipulação de Botões -->
+<section>
+    <h2>4. Manipulação de Botões</h2>
+    <article>
+        <p>Podemos manipular botões adicionando eventos de clique e alterando seu estilo.</p>
+        <h3>Exemplo de Botão com Estilo Dinâmico</h3>
+        <button id="botaoEstilizado">Clique-me</button>
+    </article>
+</section>
+
+<!-- Manipulação de Inputs -->
+<section>
+    <h2>5. Manipulação de Inputs</h2>
+    <article>
+        <p>Podemos capturar e alterar valores de diferentes tipos de inputs: texto, senha, radio buttons, checkboxes, etc.</p>
+        <h3>Exemplo de Captura de Valores</h3>
+        <label for="meuInput">Digite seu nome:</label>
+        <input type="text" id="meuInput" placeholder="Seu nome">
+        <button id="capturarInput">Capturar Nome</button>
+    </article>
+</section>
+
+<!-- Manipulação de Links -->
+<section>
+    <h2>6. Manipulação de Links</h2>
+    <article>
+        <p>Podemos alterar o destino de um link (<code>href</code>) ou seu texto dinamicamente.</p>
+        <h3>Exemplo de Manipulação de Link</h3>
+        <a id="meuLink" href="./index.html" target="_blank">Visite o Site</a>
+        <button id="alterarLink">Alterar Link</button>
+    </article>
+</section>
+
+<!-- Manipulação de Listas -->
+<section>
+    <h2>7. Manipulação de Listas</h2>
+    <article>
+        <p>Podemos adicionar, remover ou alterar itens em listas não ordenadas (<code>&lt;ul&gt;</code>) ou ordenadas (<code>&lt;ol&gt;</code>).</p>
+        <h3>Exemplo de Adição de Item a uma Lista</h3>
+        <ul id="minhaLista">
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ul>
+        <button id="adicionarItemLista">Adicionar Item à Lista</button>
+    </article>
+</section>
+
+<!-- Manipulação de Divs -->
+<section>
+    <h2>8. Manipulação de Divs</h2>
+    <article>
+        <p>Podemos alterar o conteúdo de <code>&lt;div&gt;</code>s ou seus estilos e adicionar novos contêineres à página.</p>
+        <h3>Exemplo de Manipulação de Div</h3>
+        <div id="divPrincipal">Conteúdo Original da Div</div>
+        <button id="alterarDiv">Alterar Conteúdo da Div</button>
+    </article>
+</section>

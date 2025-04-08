@@ -1,0 +1,175 @@
+<header>
+    <h1>Guia de CSS</h1>
+</header>
+        
+
+        <!-- Seletores CSS -->
+        <section>
+            <h2>1. Seletores CSS</h2>
+            <article>
+                <h3>Seletores Básicos</h3>
+                <pre><code>/* Seleciona todos os parágrafos */
+p {
+    color: blue;
+}
+
+/* Seleciona o elemento com a classe "header" */
+.header {
+    background-color: #3498db;
+    color: white;
+}
+
+/* Seleciona o elemento com o ID "menu" */
+#menu {
+    font-size: 20px;
+}</code></pre>
+                <div class="result">
+                    <p style="color: blue;">Este é um parágrafo com estilo aplicado.</p>
+                    <div class="header" style="background-color: #3498db; color: white;">Cabeçalho com classe .header</div>
+                    <div id="menu" style="font-size: 20px;">Este é um menu com ID #menu</div>
+                </div>
+            </article>
+        </section>
+
+        <!-- Propriedades de Texto -->
+        <section>
+            <h2>2. Propriedades de Texto</h2>
+            <article>
+                <h3>Cor e Fonte</h3>
+                <pre><code>/* Definir cor e fonte */
+h1 {
+    color: #2980b9;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Alterar o espaçamento entre letras */
+p {
+    letter-spacing: 2px;
+    font-size: 18px;
+}</code></pre>
+                <div class="result">
+                    <h1 style="color: #2980b9; font-family: Arial, sans-serif;">Título com cor e fonte personalizada</h1>
+                    <p style="letter-spacing: 2px; font-size: 18px;">Parágrafo com espaçamento entre letras.</p>
+                </div>
+            </article>
+        </section>
+
+        <!-- Posicionamento -->
+        <section>
+            <h2>3. Posicionamento no CSS</h2>
+            <article>
+                <h3>Static (Padrão)</h3>
+                <p>O posicionamento <code>static</code> é o comportamento padrão de todos os elementos. Eles são renderizados no fluxo normal do documento, um após o outro.</p>
+                <pre><code>/* Exemplo de static (padrão) */
+.box {
+    position: static;
+}</code></pre>
+                <div class="result">
+                    <div class="box" style="position: static;">Static</div>
+                </div>
+            </article>
+
+            <article>
+                <h3>Relative</h3>
+                <p>O <code>position: relative</code> permite que o elemento seja movido em relação à sua posição original sem sair do fluxo do documento. Outros elementos ainda se comportam como se ele estivesse em sua posição original.</p>
+                <pre><code>/* Exemplo de position relative */
+.relative-box {
+    position: relative;
+    top: 20px;
+    left: 50px;
+}</code></pre>
+                <div class="result">
+                    <div class="box relative-box">Relative</div>
+                </div>
+            </article>
+
+            <article>
+                <h3>Absolute</h3>
+                <p>O <code>position: absolute</code> remove o elemento do fluxo normal e o posiciona em relação ao seu contêiner pai mais próximo que tenha um posicionamento definido (como <code>relative</code>, <code>absolute</code> ou <code>fixed</code>).</p>
+                <pre><code>/* Exemplo de position absolute */
+.absolute-box {
+    position: absolute;
+    top: 20px;
+    left: 50px;
+}</code></pre>
+                <div class="result">
+                    <div class="absolute-container">
+                        <div class="box absolute-box">Absolute</div>
+                    </div>
+                </div>
+            </article>
+
+            <article>
+                <h3>Fixed</h3>
+                <p>O <code>position: fixed</code> posiciona o elemento em relação à janela de visualização (viewport) e o mantém fixo quando a página é rolada.</p>
+                <pre><code>/* Exemplo de position fixed */
+.fixed-box {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}</code></pre>
+                <div class="result">
+                    <div class="box fixed-box">Fixed</div>
+                </div>
+            </article>
+
+            <article>
+                <h3>Sticky</h3>
+                <p>O <code>position: sticky</code> combina comportamentos de <code>relative</code> e <code>fixed</code>. O elemento se comporta como <code>relative</code> até que atinja uma posição específica na tela, momento em que ele "gruda" e passa a se comportar como <code>fixed</code>.</p>
+                <pre><code>/* Exemplo de position sticky */
+.sticky-box {
+    position: -webkit-sticky; /* Para navegadores WebKit */
+    position: sticky;
+    top: 10px;
+}</code></pre>
+                <div class="result">
+                    <div class="box sticky-box" style="margin-bottom: 1000px;">Sticky</div>
+                </div>
+            </article>
+        </section>
+
+        <!-- Transições e Animações -->
+        <section>
+            <h2>4. Transições e Animações</h2>
+            <article>
+                <h3>Transições</h3>
+                <pre><code>/* Transição de cor */
+button {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    transition: background-color 0.5s ease;
+}
+
+button:hover {
+    background-color: #2ecc71;
+}</code></pre>
+                <div class="result">
+                    <button>Passe o mouse aqui</button>
+                </div>
+            </article>
+
+            <article>
+                <h3>Animações</h3>
+                <pre><code>/* Animação de rotação */
+@keyframes rotacao {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+
+.rotating-box {
+    width: 100px;
+    height: 100px;
+    background-color: #3498db;
+    animation: rotacao 2s infinite linear;
+}</code></pre>
+                <div class="result">
+                    <div class="rotating-box"></div>
+                </div>
+            </article>
+        </section>
+   

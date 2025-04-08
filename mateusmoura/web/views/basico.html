@@ -1,0 +1,181 @@
+<header>
+    <h1>Desenvolvimento Web</h1>
+</header>
+        
+        <p>Este guia fornece uma explicação dos principais conceitos básicos estudados no desenvolvimento web, desde o funcionamento de servidores até a estrutura de diretórios e navegação entre pastas. Esses fundamentos são essenciais para quem está começando a explorar o desenvolvimento de sites e aplicações web.</p>
+
+        <!-- Funcionamento de Servidores -->
+        <section>
+            <h2>1. Funcionamento de Servidores</h2>
+            <article>
+                <p>O servidor web é uma máquina que fornece o conteúdo de um site ou aplicação para um cliente (geralmente um navegador). O processo funciona assim:</p>
+
+                <ol>
+                    <li>O navegador (cliente) faz uma solicitação HTTP para o servidor.</li>
+                    <li>O servidor processa a solicitação, recupera os arquivos necessários (HTML, CSS, JavaScript, imagens, etc.), e os envia de volta ao navegador.</li>
+                    <li>O navegador renderiza o conteúdo, que o usuário final vê como um site funcional.</li>
+                </ol>
+
+                <p>Existem dois tipos principais de servidores:</p>
+                <ul>
+                    <li><strong>Servidor web</strong>: Lida com solicitações HTTP e entrega o conteúdo estático ou dinâmico ao cliente.</li>
+                    <li><strong>Servidor de aplicação</strong>: Lida com a lógica do back-end, conectando-se a bancos de dados e executando lógica de negócios antes de fornecer uma resposta ao servidor web.</li>
+            </article>
+        </section>
+
+        <!-- Estrutura de Diretórios e Navegação entre Pastas -->
+        <section>
+            <h2>2. Estrutura de Diretórios e Navegação entre Pastas</h2>
+            <article>
+                <p>Ao trabalhar com projetos web, entender a estrutura de diretórios é crucial. Arquivos como HTML, CSS e JavaScript são organizados em pastas (diretórios) no servidor. Aqui está um exemplo básico de estrutura de diretórios:</p>
+
+                <pre><code>/meu-projeto
+|-- /css
+|   |-- estilo.css
+|
+|-- /js
+|   |-- script.js
+|
+|-- /imagens
+|   |-- logo.png
+|
+|-- index.html
+|-- contato.html</code></pre>
+
+                <p>Nessa estrutura:</p>
+                <ul>
+                    <li><code>/css</code>: Contém arquivos de estilo, como o <code>estilo.css</code>.</li>
+                    <li><code>/js</code>: Contém scripts JavaScript, como <code>script.js</code>.</li>
+                    <li><code>/imagens</code>: Contém imagens usadas nas páginas.</li>
+                    <li><code>index.html</code>: A página inicial do site.</li>
+                    <li><code>contato.html</code>: Uma página de contato.</li>
+                </ul>
+
+                <h3>Navegação entre Pastas</h3>
+                <p>Ao referenciar arquivos em HTML ou CSS, é importante saber como navegar entre pastas:</p>
+                <ul>
+                    <li><code>./</code>: Representa o diretório atual.</li>
+                    <li><code>../</code>: Representa o diretório pai, permitindo voltar um nível na hierarquia de pastas.</li>
+                </ul>
+
+                <p>Exemplo de como incluir uma folha de estilos em um arquivo HTML localizado na pasta raiz:</p>
+                <pre><code>&lt;link rel="stylesheet" href="./css/estilo.css"&gt;</code></pre>
+
+                <p>Se você estiver em um arquivo dentro da pasta <code>/js</code> e quiser acessar um arquivo de estilo que está em <code>/css</code>:</p>
+                <pre><code>&lt;link rel="stylesheet" href="../css/estilo.css"&gt;</code></pre>
+            </article>
+        </section>
+
+        <!-- Diferença entre Arquivos Estáticos e Dinâmicos -->
+        <section>
+            <h2>3. Diferença entre Arquivos Estáticos e Dinâmicos</h2>
+            <article>
+                <p>No desenvolvimento web, é importante entender a diferença entre arquivos estáticos e dinâmicos:</p>
+
+                <h3>Arquivos Estáticos</h3>
+                <p>São arquivos que não mudam no servidor e são enviados diretamente ao cliente, como HTML, CSS, imagens e JavaScript. Um arquivo HTML é sempre o mesmo quando acessado.</p>
+
+                <h3>Arquivos Dinâmicos</h3>
+                <p>São gerados dinamicamente no servidor, muitas vezes com base nas entradas do usuário ou em dados de um banco de dados. Linguagens como PHP, Node.js, e Python são comumente usadas para gerar conteúdo dinâmico.</p>
+
+                <p>Exemplo de conteúdo dinâmico seria uma página que exibe diferentes informações para diferentes usuários logados. O conteúdo é gerado de acordo com as preferências ou dados daquele usuário.</p>
+            </article>
+        </section>
+
+        <!-- Diferença entre Cliente e Servidor -->
+        <section>
+            <h2>4. Diferença entre Cliente e Servidor</h2>
+            <article>
+                <p>No contexto de desenvolvimento web, <strong>cliente</strong> e <strong>servidor</strong> desempenham papéis diferentes:</p>
+
+                <h3>Cliente</h3>
+                <p>O cliente é o navegador web (ou qualquer outra interface que faz solicitações HTTP), como o Chrome ou Firefox, que solicita páginas da web e apresenta o conteúdo ao usuário final. É onde o código JavaScript, HTML e CSS é processado e renderizado para formar a interface que os usuários veem.</p>
+
+                <h3>Servidor</h3>
+                <p>O servidor processa as solicitações do cliente e retorna os recursos solicitados (como páginas HTML, arquivos CSS, imagens, etc.). Se for um servidor dinâmico, ele pode gerar o conteúdo em tempo real (como páginas PHP ou APIs que retornam JSON).</p>
+            </article>
+        </section>
+
+        <!-- Caminhos Absolutos e Relativos -->
+        <section>
+            <h2>5. Caminhos Absolutos e Relativos</h2>
+            <article>
+                <p>Ao criar links ou referenciar arquivos em um site, você pode usar <strong>caminhos absolutos</strong> ou <strong>caminhos relativos</strong>:</p>
+
+                <h3>Caminho Relativo</h3>
+                <p>Um caminho relativo é relativo ao diretório atual da página. Por exemplo, se você estiver na página <code>index.html</code> e quiser referenciar uma imagem na pasta <code>/imagens</code>:</p>
+                <pre><code>&lt;img src="./imagens/logo.png" alt="Logo"&gt;</code></pre>
+
+                <h3>Caminho Absoluto</h3>
+                <p>Um caminho absoluto especifica o endereço completo, começando desde o domínio. Se a imagem estiver em um servidor externo:</p>
+                <pre><code>&lt;img src="https://www.exemplo.com/imagens/logo.png" alt="Logo"&gt;</code></pre>
+            </article>
+        </section>
+
+        <!-- Função do Navegador (Browser) -->
+        <section>
+            <h2>6. Função do Navegador (Browser)</h2>
+            <article>
+                <p>O navegador (browser) é o software que permite que os usuários naveguem pela web e visualizem o conteúdo. Ele é responsável por:</p>
+
+                <ul>
+                    <li>Fazer solicitações HTTP ao servidor.</li>
+                    <li>Renderizar o conteúdo HTML, CSS e JavaScript para exibir as páginas de maneira interativa.</li>
+                    <li>Armazenar dados localmente, como cookies, localStorage e sessionStorage.</li>
+                    <li>Manter a segurança do usuário, garantindo que scripts e conteúdo de sites não comprometam a privacidade e segurança dos dados do usuário.</li>
+                </ul>
+            </article>
+        </section>
+
+        <!-- Componentes de uma URL -->
+        <section>
+            <h2>7. Componentes de uma URL</h2>
+            <article>
+                <p>Uma URL (Uniform Resource Locator) é o endereço que usamos para acessar recursos na web. Ela é composta por vários componentes:</p>
+
+                <pre><code>https://www.exemplo.com:8080/pasta/pagina.html?busca=exemplo#ancora</code></pre>
+
+                <p>Os principais componentes são:</p>
+                <ul>
+                    <li><strong>Protocolo</strong> (<code>https://</code>): O protocolo que define como os dados serão transferidos (HTTP ou HTTPS).</li>
+                    <li><strong>Domínio</strong> (<code>www.exemplo.com</code>): O nome do site ou servidor.</li>
+                    <li><strong>Porta</strong> (<code>:8080</code>): O número da porta usada para a comunicação (geralmente omitido se for a padrão).</li>
+                    <li><strong>Caminho</strong> (<code>/pasta/pagina.html</code>): O caminho até o arquivo solicitado no servidor.</li>
+                    <li><strong>Parâmetros de consulta</strong> (<code>?busca=exemplo</code>): Dados enviados ao servidor na forma de pares chave/valor.</li>
+                    <li><strong>Fragmento</strong> (<code>#ancora</code>): Refere-se a uma seção específica da página.</li>
+                </ul>
+            </article>
+        </section>
+
+        <!-- HTML, CSS, e JavaScript -->
+        <section>
+            <h2>8. HTML, CSS, e JavaScript</h2>
+            <article>
+                <p>No desenvolvimento web, três tecnologias principais são usadas para criar sites e aplicações:</p>
+
+                <h3>HTML (HyperText Markup Language)</h3>
+                <p>HTML é a linguagem de marcação usada para criar a estrutura de uma página web. Ele define os elementos da página como cabeçalhos, parágrafos, links, imagens, etc.</p>
+
+                <h3>CSS (Cascading Style Sheets)</h3>
+                <p>CSS é usado para definir o estilo visual da página. Ele controla a aparência, como cores, fontes, espaçamento, e layout dos elementos HTML.</p>
+
+                <h3>JavaScript</h3>
+                <p>JavaScript é a linguagem de programação usada para adicionar interatividade e comportamento dinâmico às páginas web. Ele pode manipular o DOM (Document Object Model) e fazer requisições para servidores, entre outras funcionalidades.</p>
+            </article>
+        </section>
+
+        <!-- Boas Práticas na Estrutura de Diretórios -->
+        <section>
+            <h2>9. Boas Práticas na Estrutura de Diretórios</h2>
+            <article>
+                <p>Organizar bem seu projeto ajuda na manutenção e no crescimento de um site ou aplicação. Aqui estão algumas boas práticas para estruturar diretórios em projetos web:</p>
+
+                <ul>
+                    <li>**Separar arquivos por tipo**: Coloque arquivos CSS, JavaScript, e imagens em pastas separadas.</li>
+                    <li>**Usar nomes de arquivos e pastas descritivos**: Escolha nomes que reflitam o propósito ou conteúdo.</li>
+                    <li>**Manter o arquivo <code>index.html</code> na raiz**: A página inicial de muitos sites é <code>index.html</code>, facilitando o acesso sem especificar o nome do arquivo na URL.</li>
+                    <li>**Minimizar a profundidade de pastas**: Evite estruturas muito profundas para facilitar a navegação e manutenção dos arquivos.</li>
+                </ul>
+            </article>
+        </section>
+    

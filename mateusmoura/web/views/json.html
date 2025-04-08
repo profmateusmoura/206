@@ -1,0 +1,194 @@
+<header>
+    <h1>JSON</h1>
+</header>
+        
+        <p>Este guia cobre o conceito de JSON (JavaScript Object Notation), como utilizá-lo em JavaScript e exemplos práticos de como converter dados de e para JSON.</p>
+
+        <!-- O que é JSON? -->
+        <section>
+            <h2>1. O que é JSON?</h2>
+            <article>
+                <p>JSON (JavaScript Object Notation) é um formato leve de intercâmbio de dados que é fácil para os humanos lerem e escreverem, e fácil para as máquinas interpretarem e gerarem. Ele é amplamente utilizado para enviar e receber dados entre um servidor e um cliente na web.</p>
+                
+                <p>O formato JSON é baseado em duas estruturas principais:</p>
+                <ul>
+                    <li>**Coleções de pares chave/valor**: semelhantes a objetos em JavaScript.</li>
+                    <li>**Listas ordenadas de valores**: semelhantes a arrays em JavaScript.</li>
+                </ul>
+            </article>
+        </section>
+
+        <!-- Exemplo de JSON -->
+        <section>
+            <h2>2. Exemplo de Estrutura JSON</h2>
+            <article>
+                <p>Abaixo está um exemplo de um objeto JSON que representa uma pessoa com propriedades como nome, idade, e uma lista de hobbies:</p>
+
+                <pre><code>{
+    "nome": "Carlos",
+    "idade": 30,
+    "email": "carlos@email.com",
+    "hobbies": ["leitura", "natação", "fotografia"]
+}</code></pre>
+
+                <p>O formato JSON usa chaves duplas (<code>"</code>) para os nomes de propriedades e valores do tipo string. Números e valores booleanos (true/false) são escritos sem aspas.</p>
+            </article>
+        </section>
+
+        <!-- Convertendo entre JSON e Objetos JavaScript -->
+        <section>
+            <h2>3. Convertendo entre JSON e Objetos JavaScript</h2>
+            <article>
+                <p>Em JavaScript, podemos converter objetos para o formato JSON (serializar) e converter JSON de volta para objetos JavaScript (desserializar) usando dois métodos principais: <code>JSON.stringify()</code> e <code>JSON.parse()</code>.</p>
+
+                <h3>3.1 Convertendo um Objeto para JSON</h3>
+                <pre><code>let pessoa = {
+    nome: "Maria",
+    idade: 25,
+    email: "maria@email.com"
+};
+
+// Converte o objeto JavaScript em uma string JSON
+let jsonPessoa = JSON.stringify(pessoa);
+console.log(jsonPessoa); // {"nome":"Maria","idade":25,"email":"maria@email.com"}</code></pre>
+
+                <h3>3.2 Convertendo JSON para Objeto</h3>
+                <pre><code>let json = '{"nome":"João", "idade":35, "email":"joao@email.com"}';
+
+// Converte a string JSON para um objeto JavaScript
+let objetoPessoa = JSON.parse(json);
+console.log(objetoPessoa.nome); // João</code></pre>
+            </article>
+        </section>
+
+        <!-- Enviando e Recebendo JSON com fetch -->
+        <section>
+            <h2>4. Enviando e Recebendo JSON com fetch</h2>
+            <article>
+                <p>Ao fazer uma requisição para um servidor, podemos enviar e receber dados no formato JSON. A API <code>fetch</code> permite trabalhar facilmente com JSON em requisições HTTP.</p>
+
+                <h3>4.1 Enviando JSON</h3>
+                <pre><code>let dados = {
+    nome: "João",
+    email: "joao@email.com"
+};
+
+// Fazendo uma requisição POST e enviando dados JSON
+fetch("https://exemplo.com/api", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify(dados)
+})
+.then(response => response.json())
+.then(data => console.log("Sucesso:", data))
+.catch(error => console.error("Erro:", error));</code></pre>
+
+                <h3>4.2 Recebendo JSON</h3>
+                <pre><code>// Fazendo uma requisição GET e recebendo dados JSON
+fetch("https://exemplo.com/api/dados")
+    .then(response => response.json())
+    .then(data => {
+        console.log(data); // Exibe o JSON recebido
+    })
+    .catch(error => console.error("Erro:", error));</code></pre>
+            </article>
+        </section>
+
+        <!-- Manipulação de JSON Complexos -->
+        <section>
+            <h2>5. Manipulação de JSON Complexos</h2>
+            <article>
+                <p>JSON pode representar dados complexos, como arrays aninhados e objetos dentro de objetos. Abaixo, veremos como manipular esses dados.</p>
+
+                <h3>5.1 Acessando Propriedades de Objetos Aninhados</h3>
+                <pre><code>let pessoa = {
+    nome: "Ana",
+    endereco: {
+        cidade: "São Paulo",
+        estado: "SP"
+    }
+};
+
+// Acessando a propriedade "cidade" dentro do objeto "endereco"
+console.log(pessoa.endereco.cidade); // São Paulo</code></pre>
+
+                <h3>5.2 Iterando sobre Arrays em JSON</h3>
+                <pre><code>let dados = {
+    nome: "Carlos",
+    hobbies: ["futebol", "guitarra", "jogos"]
+};
+
+// Itera sobre o array de hobbies
+dados.hobbies.forEach(function(hobby) {
+    console.log(hobby);
+});
+// Saída:
+// futebol
+// guitarra
+// jogos</code></pre>
+            </article>
+        </section>
+
+        <!-- JSON e Local Storage -->
+        <section>
+            <h2>6. Armazenando JSON no Local Storage</h2>
+            <article>
+                <p>O Local Storage permite que você armazene dados localmente no navegador do usuário. Como o Local Storage só pode armazenar strings, você pode usar JSON para converter e armazenar objetos complexos.</p>
+
+                <h3>Armazenando JSON no Local Storage</h3>
+                <pre><code>// Objeto que será armazenado
+let usuario = {
+    nome: "Pedro",
+    idade: 40
+};
+
+// Converter o objeto em JSON e armazenar no Local Storage
+localStorage.setItem("usuario", JSON.stringify(usuario));</code></pre>
+
+                <h3>Recuperando JSON do Local Storage</h3>
+                <pre><code>// Recuperar e converter o JSON para um objeto JavaScript
+let usuarioSalvo = localStorage.getItem("usuario");
+let objetoUsuario = JSON.parse(usuarioSalvo);
+
+console.log(objetoUsuario.nome); // Pedro</code></pre>
+            </article>
+        </section>
+
+        <!-- Boas Práticas com JSON -->
+        <section>
+            <h2>7. Boas Práticas com JSON</h2>
+            <article>
+                <p>Ao trabalhar com JSON, algumas boas práticas devem ser seguidas para garantir a segurança e a legibilidade do código:</p>
+                <ul>
+                    <li>**Sempre validar JSON recebido de fontes externas** para evitar problemas de segurança.</li>
+                    <li>**Utilize sempre o tipo correto de dados**, como números, strings, booleanos, etc.</li>
+                    <li>**Não armazene dados sensíveis no Local Storage**, já que ele pode ser acessado por qualquer script na página.</li>
+                </ul>
+            </article>
+        </section>
+
+        <!-- Comandos Úteis para JSON -->
+        <section>
+            <h2>8. Comandos Úteis para JSON</h2>
+            <article>
+                <h3><code>JSON.stringify()</code> - Converter Objeto em JSON</h3>
+                <pre><code>let objeto = { nome: "Lucas", idade: 28 };
+let jsonString = JSON.stringify(objeto);</code></pre>
+
+                <h3><code>JSON.parse()</code> - Converter JSON em Objeto</h3>
+                <pre><code>let jsonString = '{"nome": "Lucas", "idade": 28}';
+let objeto = JSON.parse(jsonString);</code></pre>
+
+                <h3><code>fetch()</code> - Trabalhando com Requisições JSON</h3>
+                <pre><code>fetch("https://api.exemplo.com/dados")
+    .then(response => response.json())
+    .then(data => console.log(data));</code></pre>
+
+                <h3><code>localStorage.setItem()</code> e <code>localStorage.getItem()</code> - Armazenar e Recuperar JSON</h3>
+                <pre><code>localStorage.setItem("usuario", JSON.stringify(usuario));
+let usuario = JSON.parse(localStorage.getItem("usuario"));</code></pre>
+            </article>
+        </section>
+    

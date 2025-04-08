@@ -1,0 +1,292 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex - Guia de Expressões Regulares</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Regex - Guia de Expressões Regulares</h1>
+    </header>
+    
+    <section>
+        <h2>1. O que é Regex?</h2>
+        <article>
+            <p>Regex, ou expressões regulares, é uma linguagem para definir padrões de busca em textos. É amplamente utilizada para validação, extração e manipulação de strings.</p>
+            <p>Elementos fundamentais das expressões regulares incluem:</p>
+            <ul>
+                <li><strong>Padrões literais:</strong> Correspondem diretamente a caracteres no texto.</li>
+                <li><strong>Metacaracteres:</strong> Caracteres especiais como <code>.</code>, <code>*</code>, <code>+</code>, <code>?</code>, entre outros.</li>
+                <li><strong>Quantificadores:</strong> Definem o número de ocorrências, como <code>{n}</code>, <code>{n,}</code>, <code>{n,m}</code>.</li>
+                <li><strong>Grupos e alternâncias:</strong> Permitem agrupar padrões e definir alternativas com <code>( )</code> e <code>|</code>.</li>
+            </ul>
+        </article>
+    </section>
+    
+    <section>
+        <h2>2. Exemplos Práticos</h2>
+        <article>
+            <h3>2.1 Validação de Email</h3>
+            <p>Expressão regular para validar um email:</p>
+            <pre><code>/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/</code></pre>
+            <p>Explicação:</p>
+            <ul>
+                <li><code>[a-zA-Z0-9._%+-]+</code>: Parte local do email.</li>
+                <li><code>@</code>: Símbolo obrigatório.</li>
+                <li><code>[a-zA-Z0-9.-]+</code>: Nome do domínio.</li>
+                <li><code>\.[a-zA-Z]{2,}</code>: Extensão do domínio.</li>
+            </ul>
+            
+            <h3>2.2 Validação de CEP</h3>
+            <p>Expressão regular para validar um CEP brasileiro:</p>
+            <pre><code>/^\d{5}-\d{3}$/</code></pre>
+            <p>Exemplo: <code>12345-678</code></p>
+        </article>
+    </section>
+    
+    <section>
+        <h2>3. Caracteres Especiais em Regex</h2>
+        <article>
+            <p>Os caracteres especiais em expressões regulares possuem significados específicos. Aqui estão os principais:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Caractere</th>
+                        <th>Significado</th>
+                        <th>Exemplo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>.</code></td>
+                        <td>Corresponde a qualquer caractere, exceto nova linha.</td>
+                        <td><code>/a.b/</code> corresponde a "acb", "a1b", mas não "ab".</td>
+                    </tr>
+                    <tr>
+                        <td><code>\d</code></td>
+                        <td>Corresponde a qualquer dígito (0-9).</td>
+                        <td><code>/\d+/</code> corresponde a "123", "456".</td>
+                    </tr>
+                    <tr>
+                        <td><code>\w</code></td>
+                        <td>Corresponde a qualquer caractere alfanumérico ou sublinhado (_).</td>
+                        <td><code>/\w+/</code> corresponde a "abc123", "teste_1".</td>
+                    </tr>
+                    <tr>
+                        <td><code>\s</code></td>
+                        <td>Corresponde a qualquer espaço em branco.</td>
+                        <td><code>/\s/</code> corresponde a " " (espaço), "\t" (tab).</td>
+                    </tr>
+                    <tr>
+                        <td><code>^</code></td>
+                        <td>Corresponde ao início da string.</td>
+                        <td><code>/^a/</code> corresponde a "abc", mas não "ba".</td>
+                    </tr>
+                    <tr>
+                        <td><code>$</code></td>
+                        <td>Corresponde ao final da string.</td>
+                        <td><code>/a$/</code> corresponde a "cba", mas não "abc".</td>
+                    </tr>
+                    <tr>
+                        <td><code>*</code></td>
+                        <td>Corresponde a zero ou mais ocorrências do padrão anterior.</td>
+                        <td><code>/a*/</code> corresponde a "", "a", "aaa".</td>
+                    </tr>
+                    <tr>
+                        <td><code>+</code></td>
+                        <td>Corresponde a uma ou mais ocorrências do padrão anterior.</td>
+                        <td><code>/a+/</code> corresponde a "a", "aaa", mas não "".</td>
+                    </tr>
+                    <tr>
+                        <td><code>?</code></td>
+                        <td>Corresponde a zero ou uma ocorrência do padrão anterior.</td>
+                        <td><code>/a?/</code> corresponde a "", "a".</td>
+                    </tr>
+                    <tr>
+                        <td><code>{n,m}</code></td>
+                        <td>Corresponde a pelo menos <code>n</code> e no máximo <code>m</code> ocorrências.</td>
+                        <td><code>/a{2,4}/</code> corresponde a "aa", "aaa", "aaaa".</td>
+                    </tr>
+                    <tr>
+                        <td><code>[abc]</code></td>
+                        <td>Corresponde a qualquer caractere dentro dos colchetes.</td>
+                        <td><code>/[abc]/</code> corresponde a "a", "b", "c".</td>
+                    </tr>
+                    <tr>
+                        <td><code>(abc)</code></td>
+                        <td>Define um grupo de captura.</td>
+                        <td><code>/(abc)+/</code> corresponde a "abc", "abcabc".</td>
+                    </tr>
+                    <tr>
+                        <td><code>\</code></td>
+                        <td>Escapa caracteres especiais.</td>
+                        <td><code>/\./</code> corresponde a "." literal.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+    </section>
+
+    <section>
+        <h2>4. Métodos de Regex em JavaScript com Inputs</h2>
+        <article>
+            <p>Os métodos de regex podem ser usados para validar campos de entrada. Aqui estão exemplos práticos:</p>
+            
+            <h3>4.1 Validação de Email</h3>
+            <p>Exemplo de validação de email em um campo de entrada:</p>
+            <pre><code>
+// HTML
+<input type="text" id="email" placeholder="Digite seu email">
+<button onclick="validarEmail()">Validar</button>
+
+// JavaScript
+function validarEmail() {
+    const emailInput = document.getElementById('email').value;
+    const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (regex.test(emailInput)) {
+        alert('Email válido!');
+    } else {
+        alert('Email inválido!');
+    }
+}
+            </code></pre>
+
+            <h3>4.2 Validação de CEP</h3>
+            <p>Exemplo de validação de CEP brasileiro:</p>
+            <pre><code>
+// HTML
+<input type="text" id="cep" placeholder="Digite seu CEP">
+<button onclick="validarCEP()">Validar</button>
+
+// JavaScript
+function validarCEP() {
+    const cepInput = document.getElementById('cep').value;
+    const regex = /^\d{5}-\d{3}$/;
+    if (regex.test(cepInput)) {
+        alert('CEP válido!');
+    } else {
+        alert('CEP inválido!');
+    }
+}
+            </code></pre>
+
+            <h3>4.3 Substituição de Texto</h3>
+            <p>Exemplo de substituição de espaços por hífens:</p>
+            <pre><code>
+// HTML
+<input type="text" id="texto" placeholder="Digite um texto">
+<button onclick="substituirEspacos()">Substituir</button>
+
+// JavaScript
+function substituirEspacos() {
+    const textoInput = document.getElementById('texto').value;
+    const resultado = textoInput.replace(/\s/g, '-');
+    alert('Texto modificado: ' + resultado);
+}
+            </code></pre>
+        </article>
+    </section>
+    
+    <section>
+        <h2>5. Boas Práticas</h2>
+        <article>
+            <ul>
+                <li>Teste suas expressões regulares com ferramentas como <a href="https://regex101.com/" target="_blank">Regex101</a>.</li>
+                <li>Comente regexes complexas para facilitar a compreensão.</li>
+                <li>Evite criar padrões excessivamente genéricos ou complexos.</li>
+            </ul>
+        </article>
+    </section>
+    
+    <section>
+        <h2>6. Ferramentas e Recursos</h2>
+        <article>
+            <ul>
+                <li><a href="https://regex101.com/" target="_blank">Regex101</a>: Teste e analise expressões regulares.</li>
+                <li><a href="https://regexr.com/" target="_blank">RegExr</a>: Ferramenta interativa para regex.</li>
+                <li><a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Regular_Expressions" target="_blank">MDN Web Docs</a>: Documentação sobre regex em JavaScript.</li>
+            </ul>
+        </article>
+    </section>
+    
+    <section>
+        <h2>7. Exemplos Avançados</h2>
+        <article>
+            <h3>7.1 Validação de Números de Telefone</h3>
+            <p>Expressão regular para validar números de telefone no formato brasileiro:</p>
+            <pre><code>/^\(\d{2}\)\s\d{4,5}-\d{4}$/</code></pre>
+            <p>Exemplo: <code>(11) 98765-4321</code></p>
+
+            <h3>7.2 Extração de URLs</h3>
+            <p>Expressão regular para encontrar URLs em um texto:</p>
+            <pre><code>/https?:\/\/(www\.)?[a-zA-Z0-9-]+\.[a-zA-Z]{2,}(\/\S*)?/</code></pre>
+            <p>Exemplo: <code>https://www.exemplo.com/caminho</code></p>
+
+            <h3>7.3 Validação de Datas</h3>
+            <p>Expressão regular para validar datas no formato DD/MM/AAAA:</p>
+            <pre><code>/^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/</code></pre>
+            <p>Exemplo: <code>31/12/2025</code></p>
+
+            <h3>7.4 Captura de Palavras</h3>
+            <p>Expressão regular para capturar todas as palavras em um texto:</p>
+            <pre><code>/\b\w+\b/g</code></pre>
+            <p>Exemplo: Captura palavras como "Regex", "é", "útil".</p>
+        </article>
+    </section>
+    
+    <script src="../js/script.js"></script>
+    <script>
+        // Validação de Email
+        function validarEmail() {
+            const emailInput = document.getElementById('email').value;
+            const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (regex.test(emailInput)) {
+                alert('Email válido!');
+            } else {
+                alert('Email inválido!');
+            }
+        }
+
+        // Validação de CEP
+        function validarCEP() {
+            const cepInput = document.getElementById('cep').value;
+            const regex = /^\d{5}-\d{3}$/;
+            if (regex.test(cepInput)) {
+                alert('CEP válido!');
+            } else {
+                alert('CEP inválido!');
+            }
+        }
+
+        // Substituição de Espaços por Hífens
+        function substituirEspacos() {
+            const textoInput = document.getElementById('texto').value;
+            const resultado = textoInput.replace(/\s/g, '-');
+            alert('Texto modificado: ' + resultado);
+        }
+
+        // Validação de Número de Telefone
+        function validarTelefone() {
+            const telefoneInput = document.getElementById('telefone').value;
+            const regex = /^\(\d{2}\)\s\d{4,5}-\d{4}$/;
+            if (regex.test(telefoneInput)) {
+                alert('Telefone válido!');
+            } else {
+                alert('Telefone inválido!');
+            }
+        }
+
+        // Validação de Data
+        function validarData() {
+            const dataInput = document.getElementById('data').value;
+            const regex = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/;
+            if (regex.test(dataInput)) {
+                alert('Data válida!');
+            } else {
+                alert('Data inválida!');
+            }
+        }
+    </script>
+</body>
+</html>

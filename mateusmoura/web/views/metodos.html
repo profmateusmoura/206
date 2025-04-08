@@ -1,0 +1,238 @@
+<header>
+    <h1>HTTP</h1>
+</header>
+        
+        <p>Este guia cobre os principais métodos HTTP usados para comunicação entre clientes e servidores. Ele explica como e quando usar cada método com exemplos práticos em JavaScript e APIs.</p>
+
+        <!-- O que são Métodos HTTP? -->
+        <section>
+            <h2>1. O que são Métodos HTTP?</h2>
+            <article>
+                <p>HTTP (HyperText Transfer Protocol) é o protocolo usado na web para a comunicação entre clientes (navegadores) e servidores. Os **métodos HTTP** são usados para especificar a ação que o cliente deseja que o servidor execute. Cada método tem um propósito específico e é utilizado em diferentes situações ao lidar com APIs e requisições web.</p>
+            </article>
+        </section>
+
+        <!-- Principais Métodos HTTP -->
+        <section>
+            <h2>2. Principais Métodos HTTP</h2>
+            <article>
+                <p>Aqui estão os métodos HTTP mais comumente utilizados, com suas funções e exemplos práticos:</p>
+
+                <h3>2.1 GET</h3>
+                <p>O método <code>GET</code> é usado para solicitar dados de um servidor. Ele não altera o estado do servidor, pois seu objetivo é apenas recuperar informações. <code>GET</code> é o método padrão quando acessamos páginas da web.</p>
+
+                <h4>Exemplo de Requisição GET</h4>
+                <pre><code>// Requisição GET para obter dados de uma API
+fetch("https://api.exemplo.com/usuarios")
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error("Erro:", error));</code></pre>
+
+                <p>No exemplo acima, o método <code>fetch</code> faz uma requisição <code>GET</code> para uma API de usuários e exibe os dados retornados.</p>
+
+                <h3>2.2 POST</h3>
+                <p>O método <code>POST</code> é usado para enviar dados ao servidor, normalmente para criar ou adicionar novos recursos. Diferente do <code>GET</code>, o <code>POST</code> pode alterar o estado do servidor.</p>
+
+                <h4>Exemplo de Requisição POST</h4>
+                <pre><code>// Requisição POST para enviar dados a uma API
+let usuario = {
+    nome: "Maria",
+    idade: 25
+};
+
+fetch("https://api.exemplo.com/usuarios", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify(usuario)
+})
+.then(response => response.json())
+.then(data => console.log("Usuário criado:", data))
+.catch(error => console.error("Erro:", error));</code></pre>
+
+                <p>No exemplo acima, enviamos um objeto <code>usuario</code> para o servidor via POST, criando um novo usuário na API.</p>
+
+                <h3>2.3 PUT</h3>
+                <p>O método <code>PUT</code> é usado para atualizar completamente um recurso existente no servidor. Ele substitui o recurso alvo pelos dados fornecidos na requisição.</p>
+
+                <h4>Exemplo de Requisição PUT</h4>
+                <pre><code>// Requisição PUT para atualizar dados de um usuário
+let usuarioAtualizado = {
+    nome: "Maria",
+    idade: 26
+};
+
+fetch("https://api.exemplo.com/usuarios/1", {
+    method: "PUT",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify(usuarioAtualizado)
+})
+.then(response => response.json())
+.then(data => console.log("Usuário atualizado:", data))
+.catch(error => console.error("Erro:", error));</code></pre>
+
+                <p>Nesse exemplo, usamos <code>PUT</code> para atualizar um usuário com ID 1, substituindo os dados antigos pelos novos fornecidos.</p>
+
+                <h3>2.4 PATCH</h3>
+                <p>O método <code>PATCH</code> é usado para fazer uma atualização parcial de um recurso existente. Ao contrário de <code>PUT</code>, ele não substitui todo o recurso, mas apenas os campos que são atualizados.</p>
+
+                <h4>Exemplo de Requisição PATCH</h4>
+                <pre><code>// Requisição PATCH para atualizar parcialmente um usuário
+let atualizacaoParcial = {
+    idade: 27
+};
+
+fetch("https://api.exemplo.com/usuarios/1", {
+    method: "PATCH",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify(atualizacaoParcial)
+})
+.then(response => response.json())
+.then(data => console.log("Usuário parcialmente atualizado:", data))
+.catch(error => console.error("Erro:", error));</code></pre>
+
+                <p>No exemplo acima, apenas a idade do usuário foi alterada, sem modificar os outros campos.</p>
+
+                <h3>2.5 DELETE</h3>
+                <p>O método <code>DELETE</code> é usado para remover um recurso no servidor. Ele é geralmente utilizado para deletar dados específicos, como usuários ou posts, a partir de um ID fornecido.</p>
+
+                <h4>Exemplo de Requisição DELETE</h4>
+                <pre><code>// Requisição DELETE para remover um usuário
+fetch("https://api.exemplo.com/usuarios/1", {
+    method: "DELETE"
+})
+.then(response => console.log("Usuário deletado"))
+.catch(error => console.error("Erro:", error));</code></pre>
+
+                <p>O exemplo acima deleta o recurso do usuário com ID 1 no servidor.</p>
+            </article>
+        </section>
+
+        <!-- Diferenças entre PUT e PATCH -->
+        <section>
+            <h2>3. Diferenças entre PUT e PATCH</h2>
+            <article>
+                <p>Embora ambos os métodos sejam usados para atualizar dados no servidor, há uma diferença importante entre <code>PUT</code> e <code>PATCH</code>:</p>
+                <ul>
+                    <li><code>PUT</code> substitui completamente o recurso existente pelos novos dados enviados. Se um campo não for enviado na requisição, ele será removido do recurso.</li>
+                    <li><code>PATCH</code> faz atualizações parciais, alterando apenas os campos especificados na requisição, sem afetar os demais.</li>
+                </ul>
+
+                <p>Use <code>PUT</code> quando precisar substituir todo o recurso, e <code>PATCH</code> quando precisar alterar apenas alguns campos específicos.</p>
+            </article>
+        </section>
+
+        <!-- Métodos HTTP menos utilizados -->
+        <section>
+            <h2>4. Métodos HTTP Menos Utilizados</h2>
+            <article>
+                <p>Além dos métodos principais, existem alguns métodos HTTP que são menos utilizados, mas ainda assim úteis em casos específicos:</p>
+
+                <h3>4.1 HEAD</h3>
+                <p>O método <code>HEAD</code> é semelhante ao <code>GET</code>, mas ele retorna apenas os cabeçalhos da resposta, sem o corpo (o conteúdo). Isso é útil para verificar se um recurso existe ou obter informações sobre ele sem baixá-lo completamente.</p>
+
+                <h4>Exemplo de Requisição HEAD</h4>
+                <pre><code>// Requisição HEAD para verificar se um recurso existe
+fetch("https://api.exemplo.com/usuarios/1", {
+    method: "HEAD"
+})
+.then(response => {
+    if (response.ok) {
+        console.log("Recurso encontrado");
+    } else {
+        console.log("Recurso não encontrado");
+    }
+});</code></pre>
+
+                <h3>4.2 OPTIONS</h3>
+                <p>O método <code>OPTIONS</code> é usado para descobrir quais métodos HTTP o servidor aceita para um recurso específico. Ele é útil para pré-verificações de segurança (como CORS).</p>
+
+                <h4>Exemplo de Requisição OPTIONS</h4>
+                <pre><code>// Requisição OPTIONS para descobrir os métodos permitidos
+fetch("https://api.exemplo.com/usuarios", {
+    method: "OPTIONS"
+})
+.then(response => console.log(response.headers.get("Allow")));</code></pre>
+
+                <p>O cabeçalho <code>Allow</code> na resposta vai indicar quais métodos são permitidos, como <code>GET</code>, <code>POST</code>, etc.</p>
+            </article>
+        </section>
+
+        <!-- Resumo dos Métodos HTTP -->
+        <section>
+            <h2>5. Resumo dos Métodos HTTP</h2>
+            <article>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Método</th>
+                            <th>Descrição</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>GET</td>
+                            <td>Solicita dados do servidor. Não altera o estado do servidor.</td>
+                        </tr>
+                        <tr>
+                            <td>POST</td>
+                            <td>Envia dados ao servidor para criar um novo recurso.</td>
+                        </tr>
+                        <tr>
+                            <td>PUT</td>
+                            <td>Atualiza completamente um recurso existente.</td>
+                        </tr>
+                        <tr>
+                            <td>PATCH</td>
+                            <td>Atualiza parcialmente um recurso existente.</td>
+                        </tr>
+                        <tr>
+                            <td>DELETE</td>
+                            <td>Remove um recurso do servidor.</td>
+                        </tr>
+                        <tr>
+                            <td>HEAD</td>
+                            <td>Recupera os cabeçalhos de uma resposta, sem o corpo.</td>
+                        </tr>
+                        <tr>
+                            <td>OPTIONS</td>
+                            <td>Descobre os métodos HTTP permitidos para um recurso.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+        </section>
+
+        <!-- Comandos Úteis para Testar Métodos HTTP -->
+        <section>
+            <h2>6. Comandos Úteis para Testar Métodos HTTP</h2>
+            <article>
+                <h3><code>fetch()</code> - Fazendo Requisições HTTP com JavaScript</h3>
+                <pre><code>// Requisição GET
+fetch("https://api.exemplo.com/usuarios")
+    .then(response => response.json())
+    .then(data => console.log(data));
+
+// Requisição POST
+fetch("https://api.exemplo.com/usuarios", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ nome: "Carlos", idade: 32 })
+});</code></pre>
+
+                <h3>Testando Requisições com cURL (linha de comando)</h3>
+                <pre><code>// Requisição GET com cURL
+curl -X GET "https://api.exemplo.com/usuarios"
+
+// Requisição POST com cURL
+curl -X POST "https://api.exemplo.com/usuarios" \
+     -H "Content-Type: application/json" \
+     -d '{"nome": "Maria", "idade": 28}'</code></pre>
+            </article>
+        </section>
+  

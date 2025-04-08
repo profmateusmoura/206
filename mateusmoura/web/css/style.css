@@ -1,0 +1,221 @@
+/* Estilos Gerais */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #4c7d96;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+    color: #2b3752;
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Estilos do Header */
+header {
+    background-color: #4c7d96;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0; /* Garante que o header comece na borda esquerda */
+    right: 0; /* Garante que o header termine na borda direita */
+    font-size: 22px;
+    z-index: 1000;
+}
+
+/* Layout Principal */
+.container {
+    display: flex;
+    padding: 20px;
+    margin-top: 80px; /* Ajuste para não cortar o conteúdo */
+    min-height: calc(100vh - 80px); /* Faz o layout ocupar a altura total da tela */
+}
+
+/* Menu Lateral (Aside) */
+aside.menu {
+    width: 220px;
+    background-color: #4c7d96;
+    padding: 20px;
+    height: calc(100vh - 80px);
+    position: fixed;
+    top: 80px;
+    left: 0;
+    overflow-y: auto;
+}
+
+aside.menu nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+aside.menu nav ul li {
+    margin-bottom: 12px;
+}
+
+aside.menu nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    display: block;
+    background-color: #384850;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 16px;
+}
+
+aside.menu nav ul li a:hover {
+    background-color: #6d7984;
+    transform: translateX(5px);
+}
+
+/* Área de Conteúdo Principal */
+.content {
+    margin-left: 250px;
+    padding: 20px;
+    background-color: white;
+    flex-grow: 1;
+    border-radius: 8px;
+}
+
+.content h2 {
+    margin-bottom: 20px;
+    color: #4a6fa5;
+    font-size: 28px;
+}
+
+.content p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Estilos de Código */
+pre {
+    background-color: #2e2e2e;
+    color: #f8f8f2;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #44475a;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    overflow-x: auto;
+}
+
+code {
+    background-color: #2e2e2e;
+    color: #4dd169;
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+}
+
+/* Botão com hover e transição */
+button {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #2ecc71;
+}
+
+/* Estilo para caixas de exemplo */
+.box {
+    width: 120px;
+    height: 120px;
+    background-color: #3498db;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+}
+
+/* Estilos de Posicionamento (para exemplos) */
+.relative-box {
+    position: relative;
+    top: 20px;
+    left: 50px;
+    background-color: #ff6f61;
+}
+
+.absolute-container {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+}
+
+.absolute-box {
+    position: absolute;
+    top: 20px;
+    left: 50px;
+    background-color: #50e3c2;
+}
+
+.fixed-box {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #7ed321;
+}
+
+.sticky-box {
+    position: sticky;
+    top: 10px;
+    background-color: #bd10e0;
+    padding: 10px;
+    border: 2px solid #ccc;
+}
+
+/* Animação de rotação */
+.rotating-box {
+    width: 100px;
+    height: 100px;
+    background-color: #3498db;
+    animation: rotacao 2s infinite linear;
+}
+
+@keyframes rotacao {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    aside.menu {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 10px;
+        margin-left: 0;
+    }
+
+    .content {
+        margin-left: 0;
+    }
+}

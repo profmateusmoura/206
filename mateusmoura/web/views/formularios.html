@@ -1,0 +1,388 @@
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    .resultado {
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        background-color: #f9f9f9;
+    }
+</style>
+<header>
+    <h1>Formulários com JavaScript</h1>
+</header>
+        
+        <p>Este guia abrange como manipular formulários com JavaScript, incluindo validação, eventos, coleta de dados e envio.</p>
+
+        <!-- Introdução -->
+        <section>
+            <h2>1. Introdução</h2>
+            <p>Formulários são uma das maneiras mais comuns de coletar dados dos usuários. Eles podem conter diversos tipos de entradas, como campos de texto, botões de rádio, checkboxes e menus suspensos. JavaScript permite validar, manipular e enviar os dados de formulários de forma eficiente e interativa.</p>
+        </section>
+
+        <!-- Estrutura Básica de um Formulário -->
+        <section>
+            <h2>2. Estrutura Básica de um Formulário</h2>
+            <article>
+                <p>Um formulário HTML básico pode conter vários tipos de elementos, como campos de entrada (<code>&lt;input&gt;</code>), menus suspensos (<code>&lt;select&gt;</code>) e caixas de texto (<code>&lt;textarea&gt;</code>).</p>
+
+                <h3>Exemplo de Formulário</h3>
+                <pre><code>&lt;form id="meuFormulario"&gt;
+    &lt;label for="nome"&gt;Nome:&lt;/label&gt;
+    &lt;input type="text" id="nome" name="nome" required&gt;
+
+    &lt;label for="email"&gt;Email:&lt;/label&gt;
+    &lt;input type="email" id="email" name="email" required&gt;
+
+    &lt;label for="mensagem"&gt;Mensagem:&lt;/label&gt;
+    &lt;textarea id="mensagem" name="mensagem"&gt;&lt;/textarea&gt;
+
+    &lt;button type="submit"&gt;Enviar&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+                <p>No exemplo acima, temos um formulário simples com três campos: nome, email e uma área para mensagem, além de um botão para envio.</p>
+            </article>
+        </section>
+
+        <!-- Selecionando e Manipulando Formulários -->
+        <section>
+            <h2>3. Selecionando e Manipulando Formulários</h2>
+            <article>
+                <p>Em JavaScript, você pode selecionar um formulário e seus elementos usando métodos como <code>getElementById</code>, <code>querySelector</code> e <code>getElementsByName</code>.</p>
+
+                <h3>Exemplo de Seleção de Formulário</h3>
+                <pre><code>// Selecionando o formulário pelo ID
+let formulario = document.getElementById("meuFormulario");
+
+// Acessando um campo específico pelo nome
+let nomeCampo = document.querySelector("input[name='nome']");
+console.log(nomeCampo.value); // Exibe o valor digitado no campo "nome"</code></pre>
+            </article>
+        </section>
+
+        <!-- Validação de Formulários -->
+        <section>
+            <h2>4. Validação de Formulários</h2>
+            <article>
+                <p>A validação de formulários garante que os dados enviados pelos usuários estejam corretos antes de serem processados. Você pode validar os campos diretamente no HTML usando atributos como <code>required</code>, ou fazer validações mais complexas com JavaScript.</p>
+
+                <h3>Validação Simples com HTML</h3>
+                <pre><code>&lt;input type="email" required&gt;</code></pre>
+
+                <h3>Validação Personalizada com JavaScript</h3>
+                <pre><code>document.getElementById("meuFormulario").addEventListener("submit", function(event) {
+    let nome = document.getElementById("nome").value;
+    let email = document.getElementById("email").value;
+
+    if (nome === "") {
+        alert("O campo nome é obrigatório.");
+        event.preventDefault(); // Impede o envio do formulário
+    }
+
+    if (!email.includes("@")) {
+        alert("Digite um email válido.");
+        event.preventDefault(); // Impede o envio do formulário
+    }
+});</code></pre>
+                <p>O exemplo acima valida se o campo nome está preenchido e se o campo email contém um "@" antes de enviar o formulário.</p>
+            </article>
+        </section>
+
+        <!-- Eventos e Manipulação -->
+        <section>
+            <h2>5. Eventos em Formulários</h2>
+            <article>
+                <p>Formulários podem disparar vários eventos, como <code>submit</code>, <code>focus</code>, <code>blur</code> e <code>change</code>. Você pode usar esses eventos para manipular os formulários dinamicamente.</p>
+
+                <h3>Evento <code>submit</code></h3>
+                <pre><code>// Adiciona um evento de submit ao formulário
+document.getElementById("meuFormulario").addEventListener("submit", function(event) {
+    alert("Formulário enviado!");
+    event.preventDefault(); // Impede o envio para fins de demonstração
+});</code></pre>
+
+                <h3>Evento <code>focus</code> e <code>blur</code></h3>
+                <pre><code>// Adiciona destaque quando o campo recebe foco
+let campoNome = document.getElementById("nome");
+
+campoNome.addEventListener("focus", function() {
+    campoNome.style.backgroundColor = "#e0f7fa";
+});
+
+campoNome.addEventListener("blur", function() {
+    campoNome.style.backgroundColor = "";
+});</code></pre>
+
+                <h3>Evento <code>change</code></h3>
+                <pre><code>// Monitora mudanças em um campo de seleção
+let selecao = document.getElementById("meuSelect");
+
+selecao.addEventListener("change", function() {
+    console.log("Opção selecionada: " + selecao.value);
+});</code></pre>
+            </article>
+        </section>
+
+        <!-- Coleta e Processamento de Dados -->
+        <section>
+            <h2>6. Coletando e Processando Dados de Formulários</h2>
+            <article>
+                <p>Após a validação, você pode coletar os dados do formulário para processamento. Em JavaScript, os valores dos campos podem ser acessados diretamente e podem ser enviados para um servidor ou processados localmente.</p>
+
+                <h3>Coletando Dados de Formulários</h3>
+                <pre><code>let nome = document.getElementById("nome").value;
+let email = document.getElementById("email").value;
+
+console.log("Nome: " + nome);
+console.log("Email: " + email);</code></pre>
+
+                <p>Os dados podem ser enviados para um servidor usando métodos como <code>fetch</code> ou <code>XMLHttpRequest</code>.</p>
+
+                <h3>Enviando Dados com <code>fetch</code></h3>
+                <pre><code>// Exemplo de envio de dados usando fetch
+document.getElementById("meuFormulario").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    let nome = document.getElementById("nome").value;
+    let email = document.getElementById("email").value;
+
+    let dados = {
+        nome: nome,
+        email: email
+    };
+
+    fetch("https://exemplo.com/submit", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(dados)
+    }).then(response =&gt; response.json())
+      .then(data =&gt; console.log(data))
+      .catch(error =&gt; console.error("Erro:", error));
+});</code></pre>
+            </article>
+        </section>
+
+        <!-- Trabalhando com Vários Tipos de Campos -->
+        <section>
+            <h2>7. Trabalhando com Diferentes Tipos de Campos</h2>
+            <article>
+                <p>Formulários podem conter diferentes tipos de campos, e cada um pode ser manipulado de maneira específica em JavaScript.</p>
+
+                <h3>Checkboxes</h3>
+                <pre><code>// Seleciona um checkbox e verifica se está marcado
+let checkbox = document.getElementById("meuCheckbox");
+if (checkbox.checked) {
+    console.log("Checkbox está marcado");
+}</code></pre>
+
+                <h3>Botões de Rádio</h3>
+                <pre><code>// Verifica qual botão de rádio está selecionado
+let radios = document.getElementsByName("sexo");
+for (let radio of radios) {
+    if (radio.checked) {
+        console.log("Selecionado: " + radio.value);
+    }
+}</code></pre>
+
+                <h3>Menus Suspensos (Select)</h3>
+                <pre><code>// Obtém o valor da opção selecionada
+let select = document.getElementById("meuSelect");
+let opcaoSelecionada = select.options[select.selectedIndex].value;
+console.log("Opção selecionada: " + opcaoSelecionada);</code></pre>
+            </article>
+        </section>
+
+        <!-- Dicas Úteis -->
+        <section>
+            <h2>8. Dicas Úteis</h2>
+            <article>
+                <h3>Prevenir o Envio Padrão</h3>
+                <p>Para evitar o comportamento padrão de envio de um formulário (especialmente ao usar validação com JavaScript), use <code>event.preventDefault()</code> no evento de <code>submit</code>.</p>
+
+                <h3>Limpar Formulário Após o Envio</h3>
+                <p>Após o envio, você pode limpar os campos do formulário usando o método <code>reset()</code>:</p>
+                <pre><code>document.getElementById("meuFormulario").reset();</code></pre>
+            </article>
+
+        </section>
+            
+    <!-- Estrutura Básica de um Formulário -->
+    <section>
+        <h2>9. Estrutura Básica de um Formulário</h2>
+        <article>
+            <p>Um formulário HTML básico pode conter vários tipos de elementos, como campos de entrada (<code>&lt;input&gt;</code>), menus suspensos (<code>&lt;select&gt;</code>) e caixas de texto (<code>&lt;textarea&gt;</code>).</p>
+    
+            <h3>Exemplo de Formulário</h3>
+            <pre><code>&lt;form id="meuFormulario" action="/submit-form" method="post"&gt;
+            &lt;label for="nome"&gt;Nome:&lt;/label&gt;
+            &lt;input type="text" id="nome" name="nome" required&gt;
+        
+            &lt;label for="email"&gt;Email:&lt;/label&gt;
+            &lt;input type="email" id="email" name="email" required&gt;
+        
+            &lt;label for="senha"&gt;Senha:&lt;/label&gt;
+            &lt;input type="password" id="senha" name="senha" required&gt;
+        
+            &lt;label for="idade"&gt;Idade:&lt;/label&gt;
+            &lt;input type="number" id="idade" name="idade" min="0" max="120" required&gt;
+        
+            &lt;label for="dataNascimento"&gt;Data de Nascimento:&lt;/label&gt;
+            &lt;input type="date" id="dataNascimento" name="dataNascimento" required&gt;
+        
+            &lt;label for="horaEvento"&gt;Hora do Evento:&lt;/label&gt;
+            &lt;input type="time" id="horaEvento" name="horaEvento" required&gt;
+        
+            &lt;label for="arquivo"&gt;Envie seu documento:&lt;/label&gt;
+            &lt;input type="file" id="arquivo" name="arquivo" accept=".pdf,.doc,.docx" required&gt;
+        
+            &lt;label for="url"&gt;Seu site favorito:&lt;/label&gt;
+            &lt;input type="url" id="url" name="url"&gt;
+        
+            &lt;label for="telefone"&gt;Telefone:&lt;/label&gt;
+            &lt;input type="tel" id="telefone" name="telefone"&gt;
+        
+            &lt;label for="corFavorita"&gt;Escolha sua cor favorita:&lt;/label&gt;
+            &lt;input type="color" id="corFavorita" name="corFavorita"&gt;
+        
+            &lt;label for="mensagem"&gt;Mensagem:&lt;/label&gt;
+            &lt;textarea id="mensagem" name="mensagem"&gt;&lt;/textarea&gt;
+        
+            &lt;label for="aceitoTermos"&gt;Aceito os termos:&lt;/label&gt;
+            &lt;input type="checkbox" id="aceitoTermos" name="termos" required&gt;
+        
+            &lt;label&gt;Gênero:&lt;/label&gt;
+            &lt;label for="masculino"&gt;
+                &lt;input type="radio" id="masculino" name="sexo" value="masculino"&gt; Masculino
+            &lt;/label&gt;
+            &lt;label for="feminino"&gt;
+                &lt;input type="radio" id="feminino" name="sexo" value="feminino"&gt; Feminino
+            &lt;/label&gt;
+        
+            &lt;label for="pais"&gt;País:&lt;/label&gt;
+            &lt;select id="pais" name="pais"&gt;
+                &lt;option value="brasil"&gt;Brasil&lt;/option&gt;
+                &lt;option value="argentina"&gt;Argentina&lt;/option&gt;
+                &lt;option value="eua"&gt;Estados Unidos&lt;/option&gt;
+            &lt;/select&gt;
+        
+            &lt;label for="quantidade"&gt;Quantidade:&lt;/label&gt;
+            &lt;input type="range" id="quantidade" name="quantidade" min="1" max="10"&gt;
+        
+            &lt;button type="submit"&gt;Enviar&lt;/button&gt;
+            &lt;/form&gt;</code></pre>
+    
+            <p>No exemplo acima, temos um formulário completo com diversos tipos de campos, incluindo texto, email, senha, número, data, hora, arquivos, URL, telefone, cor, checkbox, botões de rádio, menus suspensos, áreas de texto e um botão de envio.</p>
+        </article>
+
+    </section>
+       
+   
+
+
+
+<!-- Formulário -->
+<section>
+    <h2>Formulário de Teste</h2>
+    <form id="meuFormulario">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required><br><br>
+
+        <label for="idade">Idade:</label>
+        <input type="number" id="idade" name="idade" min="0" max="120" required><br><br>
+
+        <label for="dataNascimento">Data de Nascimento:</label>
+        <input type="date" id="dataNascimento" name="dataNascimento" required><br><br>
+
+        <label for="horaEvento">Hora do Evento:</label>
+        <input type="time" id="horaEvento" name="horaEvento" required><br><br>
+
+        <label for="arquivo">Envie seu documento:</label>
+        <input type="file" id="arquivo" name="arquivo" accept=".pdf,.doc,.docx"><br><br>
+
+        <label for="url">Seu site favorito:</label>
+        <input type="url" id="url" name="url"><br><br>
+
+        <label for="telefone">Telefone:</label>
+        <input type="tel" id="telefone" name="telefone"><br><br>
+
+        <label for="corFavorita">Escolha sua cor favorita:</label>
+        <input type="color" id="corFavorita" name="corFavorita"><br><br>
+
+        <label for="mensagem">Mensagem:</label>
+        <textarea id="mensagem" name="mensagem"></textarea><br><br>
+
+        <label for="aceitoTermos">Aceito os termos:</label>
+        <input type="checkbox" id="aceitoTermos" name="termos" required><br><br>
+
+        <label>Gênero:</label>
+        <label for="masculino">
+            <input type="radio" id="masculino" name="sexo" value="masculino"> Masculino
+        </label>
+        <label for="feminino">
+            <input type="radio" id="feminino" name="sexo" value="feminino"> Feminino
+        </label><br><br>
+
+        <label for="pais">País:</label>
+        <select id="pais" name="pais">
+            <option value="brasil">Brasil</option>
+            <option value="argentina">Argentina</option>
+            <option value="eua">Estados Unidos</option>
+        </select><br><br>
+
+        <label for="quantidade">Quantidade:</label>
+        <input type="range" id="quantidade" name="quantidade" min="1" max="10"><br><br>
+
+        <button type="submit">Enviar</button>
+    </form>
+</section>
+
+<!-- Resultado -->
+<section class="resultado" id="resultado">
+    <h2>Resultado do Formulário</h2>
+    <div id="dadosResultado">
+        
+    </div>
+</section>
+
+<script>
+    document.getElementById("meuFormulario").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        // Captura os valores do formulário
+        const form = event.target;
+        const resultado = document.getElementById("dadosResultado");
+        
+        let genero = form.sexo.value;
+        let termos = form.termos.checked ? "Aceitos" : "Não aceitos";
+
+        // Monta a exibição dos dados
+        resultado.innerHTML = `
+            <ul>
+                <li><strong>Nome:</strong> ${form.nome.value}</li>
+                <li><strong>Email:</strong> ${form.email.value}</li>
+                <li><strong>Senha:</strong> (oculto por segurança)</li>
+                <li><strong>Idade:</strong> ${form.idade.value}</li>
+                <li><strong>Data de Nascimento:</strong> ${form.dataNascimento.value}</li>
+                <li><strong>Hora do Evento:</strong> ${form.horaEvento.value}</li>
+                <li><strong>Arquivo:</strong> ${form.arquivo.value}</li>
+                <li><strong>URL:</strong> ${form.url.value}</li>
+                <li><strong>Telefone:</strong> ${form.telefone.value}</li>
+                <li><strong>Cor Favorita:</strong> ${form.corFavorita.value}</li>
+                <li><strong>Mensagem:</strong> ${form.mensagem.value}</li>
+                <li><strong>Aceito os Termos:</strong> ${termos}</li>
+                <li><strong>Gênero:</strong> ${genero}</li>
+                <li><strong>País:</strong> ${form.pais.value}</li>
+                <li><strong>Quantidade:</strong> ${form.quantidade.value}</li>
+            </ul>
+        `;
+    });
+</script>

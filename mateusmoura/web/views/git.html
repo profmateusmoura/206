@@ -1,0 +1,125 @@
+<header>
+    <h1>Git e GitHub</h1>
+</header>
+
+<p>Este guia é para estudantes que estão começando a aprender Git e GitHub, com integração ao Visual Studio Code (VSCode). Os comandos estão organizados de forma sequencial para facilitar o uso.</p>
+
+<!-- 1. Configurando o Usuário no Git -->
+<section>
+    <h2>1. Configurando o Usuário no Git</h2>
+    <article>
+        <h3>Quando o Usuário Não Está Configurado</h3>
+        <p>Se você ainda não configurou seu usuário no Git, execute os comandos abaixo para definir seu nome e e-mail globalmente. Essas informações serão associadas aos seus commits.</p>
+        <h4>Definindo Nome e E-mail</h4>
+        <pre><code>git config --global user.name "Seu Nome"
+git config --global user.email "seuemail@exemplo.com"</code></pre>
+        <p>Para confirmar as configurações, use:</p>
+        <pre><code>git config --global --list</code></pre>
+    </article>
+</section>
+
+<!-- 2. Primeiro Uso com VSCode -->
+<section>
+    <h2>2. Primeiro Uso com VSCode</h2>
+    <article>
+        <h3>Inicializando e Configurando o Repositório</h3>
+        <p>Para começar, configure seu repositório local usando o VSCode:</p>
+        <h4>Inicializar o Repositório</h4>
+        <pre><code>git init</code></pre>
+        <h4>Adicionar Arquivos</h4>
+        <pre><code>git add .</code></pre>
+        <h4>Commit Inicial</h4>
+        <pre><code>git commit -m "Commit inicial"</code></pre>
+        <h4>Conectar ao Repositório Remoto e Enviar</h4>
+        <pre><code>git remote add origin https://github.com/seu-usuario/seu-repositorio.git
+git push origin main</code></pre>
+    </article>
+</section>
+
+<!-- 3. Trabalhando com Commits -->
+<section>
+    <h2>3. Trabalhando com Commits</h2>
+    <article>
+        <h3>Preparando e Registrando Suas Alterações</h3>
+        <p>Após modificar seu código, utilize os comandos abaixo, diretamente pelo VSCode:</p>
+        <h4>Verificar o Status</h4>
+        <pre><code>git status</code></pre>
+        <h4>Adicionar Alterações</h4>
+        <pre><code>git add .</code></pre>
+        <h4>Criar um Commit</h4>
+        <pre><code>git commit -m "Descrição das alterações"</code></pre>
+        <h4>Visualizar Histórico de Commits</h4>
+        <pre><code>git log</code></pre>
+    </article>
+</section>
+
+<!-- 4. Atualizando os Commits e Sincronizando com GitHub -->
+<section>
+    <h2>4. Atualizando os Commits e Sincronizando com GitHub</h2>
+    <article>
+        <h3>Sincronizando com o Repositório Remoto</h3>
+        <p>Utilize estes comandos para manter seu repositório local atualizado:</p>
+        <h4>Puxar Atualizações (Pull)</h4>
+        <pre><code>git pull origin main</code></pre>
+        <h4>Enviar Novos Commits (Push)</h4>
+        <pre><code>git push origin main</code></pre>
+    </article>
+</section>
+
+<!-- 5. Trabalhando com Branches e Merge -->
+<section>
+    <h2>5. Trabalhando com Branches e Merge</h2>
+    <article>
+        <h3>Fluxo de Desenvolvimento com Branches</h3>
+        <p>Para desenvolver novas funcionalidades sem afetar o código principal:</p>
+        <h4>Criar uma Nova Branch</h4>
+        <pre><code>git checkout -b nova-branch</code></pre>
+        <h4>Realizar o Merge e Resolver Conflitos</h4>
+        <p>Após finalizar as alterações na branch, mescle-a com a branch principal:</p>
+        <pre><code>git checkout main
+git merge nova-branch
+git add .
+git commit -m "Merge e resolução de conflitos"</code></pre>
+        <h4>Histórico Linear com Rebase</h4>
+        <pre><code>git rebase main</code></pre>
+    </article>
+</section>
+
+<!-- 6. Recursos Avançados e Comandos Úteis -->
+<section>
+    <h2>6. Recursos Avançados e Comandos Úteis</h2>
+    <article>
+        <h3>Outros Comandos Importantes</h3>
+        <h4>Staging Parcial</h4>
+        <pre><code>git add -p</code></pre>
+        <h4>Visualizar Diferenças</h4>
+        <pre><code>git diff HEAD</code></pre>
+        <h4>Gerenciar Branches</h4>
+        <pre><code>git branch nome-da-branch</code></pre>
+        <h4>Ignorando Arquivos com .gitignore</h4>
+        <pre><code>.vscode/
+dist/
+build/</code></pre>
+        <h3>Desfazendo Mudanças</h3>
+        <h4>Resetar o Último Commit</h4>
+        <pre><code>git reset --soft HEAD~1</code></pre>
+        <h4>Revertendo um Commit</h4>
+        <pre><code>git revert [commit]</code></pre>
+    </article>
+</section>
+
+<!-- 7. Sincronizando com GitHub -->
+<section>
+    <h2>7. Sincronizando com GitHub</h2>
+    <article>
+        <h3>Configurando o Repositório Remoto</h3>
+        <p>Após configurar seu nome e e-mail com o Git (consulte a Seção 1, se necessário), conecte seu repositório local ao repositório remoto no GitHub:</p>
+        <pre><code>git remote add origin https://github.com/seu-usuario/seu-repositorio.git</code></pre>
+        <h3>Enviando seus Commits ao GitHub</h3>
+        <p>Após realizar commits locais, sincronize seu repositório com o GitHub utilizando o seguinte comando:</p>
+        <pre><code>git push -u origin main</code></pre>
+        <h3>Atualizando seu Repositório Local</h3>
+        <p>Para buscar as últimas alterações do repositório remoto:</p>
+        <pre><code>git pull origin main</code></pre>
+    </article>
+</section>

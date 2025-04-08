@@ -1,0 +1,272 @@
+<header>
+    <h1>HTML</h1>
+</header>
+        
+        <p>Este guia detalhado contém exemplos práticos e explicações para as principais tags HTML. Cada seção apresenta o uso e a visualização das tags.</p>
+
+        <!-- 1. Estrutura e Metadados -->
+        <section>
+            <h2>1. Estrutura e Metadados</h2>
+            <article>
+                <h3>&lt;html&gt; e &lt;head&gt;</h3>
+                <p>Define a estrutura básica do documento HTML e o cabeçalho da página, respectivamente.</p>
+                <pre><code>&lt;html lang="pt-br"&gt;
+&lt;head&gt;
+    &lt;!-- Metadados, título e links para estilos --&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Conteúdo principal do documento --&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                <div class="result no-result">[Não há resultado visual específico]</div>
+            </article>
+            <article>
+                <h3>&lt;meta&gt; e &lt;title&gt;</h3>
+                <p>Define metadados da página e o título exibido na aba do navegador.</p>
+                <pre><code>&lt;meta charset="UTF-8"&gt;
+&lt;title&gt;Guia Completo de Tags HTML&lt;/title&gt;</code></pre>
+                <div class="result no-result">[Título exibido na aba do navegador]</div>
+            </article>
+        </section>
+
+        <!-- 2. Estruturação de Conteúdo -->
+        <section>
+            <h2>2. Estruturação de Conteúdo</h2>
+            <article>
+                <h3>&lt;header&gt;, &lt;nav&gt;, &lt;section&gt;, &lt;article&gt;, &lt;aside&gt;, &lt;footer&gt; e &lt;div&gt;</h3>
+                <p>Essas tags ajudam a organizar o conteúdo da página em blocos semânticos.</p>
+                <pre><code>&lt;header&gt;Cabeçalho do site&lt;/header&gt;
+&lt;nav&gt;Navegação principal&lt;/nav&gt;
+&lt;section&gt;Seção de conteúdo&lt;/section&gt;
+&lt;article&gt;Artigo ou post específico&lt;/article&gt;
+&lt;aside&gt;Barra lateral ou conteúdo secundário&lt;/aside&gt;
+&lt;footer&gt;Rodapé da página&lt;/footer&gt;
+&lt;div&gt;Divisão genérica do conteúdo&lt;/div&gt;</code></pre>
+                <div class="result">
+                    <hea5der><h4>Cabeçalho do site</h4></hea5der>
+                    <nav>Navegação principal</nav>
+                    <section><h4>Seção de conteúdo</h4></section>
+                    <article><h4>Artigo ou post específico</h4></article>
+                    <aside>Barra lateral ou conteúdo secundário</aside>
+                    <footer><h4>Rodapé da página</h4></footer>
+                    <div>Divisão genérica do conteúdo</div>
+                </div>
+            </article>
+        </section>
+
+        <!-- 3. Formatação de Texto -->
+        <section>
+            <h2>3. Formatação de Texto</h2>
+            <article>
+                <h3>&lt;p&gt;, &lt;h1&gt; a &lt;h6&gt;, &lt;strong&gt;, &lt;em&gt;, &lt;u&gt;, &lt;br&gt;</h3>
+                <p>Essas tags definem parágrafos, títulos, negrito, itálico, sublinhado e quebras de linha.</p>
+                <pre><code>&lt;p&gt;Este é um parágrafo.&lt;/p&gt;
+&lt;h1&gt;Título de Nível 1&lt;/h1&gt;
+&lt;h2&gt;Título de Nível 2&lt;/h2&gt;
+&lt;strong&gt;Texto em negrito&lt;/strong&gt;
+&lt;em&gt;Texto em itálico&lt;/em&gt;
+&lt;u&gt;Texto sublinhado&lt;/u&gt;
+&lt;br&gt;Quebra de linha</code></pre>
+                <div class="result">
+                    <p>Este é um parágrafo.</p>
+                    <h1>Título de Nível 1</h1>
+                    <h2>Título de Nível 2</h2>
+                    <strong>Texto em negrito</strong><br>
+                    <em>Texto em itálico</em><br>
+                    <u>Texto sublinhado</u><br>
+                    Quebra de linha
+                </div>
+            </article>
+            <article>
+                <h3>&lt;blockquote&gt; e &lt;pre&gt;</h3>
+                <p>Estas tags são usadas para citações em bloco e blocos de código pré-formatados.</p>
+                <pre><code>&lt;blockquote&gt;Isto é uma citação.&lt;/blockquote&gt;
+&lt;pre&gt;
+    &lt;code&gt;Código pré-formatado&lt;/code&gt;
+&lt;/pre&gt;</code></pre>
+                <div class="result">
+                    <blockquote>Isto é uma citação.</blockquote>
+                    <pre><code>Código pré-formatado</code></pre>
+                </div>
+            </article>
+        </section>
+
+        <!-- 4. Tipos de Input -->
+        <section>
+            <h2>4. Tipos de Input</h2>
+            <article>
+                <h3>&lt;input&gt; - Vários tipos de entrada</h3>
+                <p>Os inputs podem ter vários tipos, como texto, email, senha, número, data, entre outros.</p>
+                <pre><code>&lt;form&gt;
+    &lt;input type="text" placeholder="Digite seu nome"&gt;
+    &lt;br&gt;
+    &lt;input type="email" placeholder="Digite seu email"&gt;
+    &lt;br&gt;
+    &lt;input type="password" placeholder="Digite sua senha"&gt;
+    &lt;br&gt;
+    &lt;input type="number" placeholder="Digite sua idade"&gt;
+    &lt;br&gt;
+    &lt;input type="date" placeholder="Selecione uma data"&gt;
+    &lt;br&gt;
+    &lt;input type="checkbox"&gt; Concordo com os termos
+    &lt;br&gt;
+    &lt;input type="radio" name="genero" value="masculino"&gt; Masculino
+    &lt;br&gt;
+    &lt;input type="radio" name="genero" value="feminino"&gt; Feminino
+    &lt;br&gt;
+    &lt;input type="range" min="0" max="100"&gt; Volume
+    &lt;br&gt;
+    &lt;button type="submit"&gt;Enviar&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                <div class="result">
+                    <form>
+                        <input type="text" placeholder="Digite seu nome"><br>
+                        <input type="email" placeholder="Digite seu email"><br>
+                        <input type="password" placeholder="Digite sua senha"><br>
+                        <input type="number" placeholder="Digite sua idade"><br>
+                        <input type="date"><br>
+                        <input type="checkbox"> Concordo com os termos<br>
+                        <input type="radio" name="genero" value="masculino"> Masculino<br>
+                        <input type="radio" name="genero" value="feminino"> Feminino<br>
+                        <input type="range" min="0" max="100"> Volume<br>
+                        <button type="submit">Enviar</button>
+                    </form>
+                </div>
+            </article>
+        </section>
+
+        <!-- 5. Multimídia -->
+        <section>
+            <h2>5. Multimídia</h2>
+            <article>
+                <h3>&lt;audio&gt;, &lt;video&gt;, &lt;source&gt;, &lt;track&gt;</h3>
+                <p>Essas tags são usadas para adicionar áudio e vídeo ao documento HTML.</p>
+                <pre><code>&lt;audio controls&gt;
+    &lt;source src="audio.mp3" type="audio/mpeg"&gt;
+    Seu navegador não suporta o elemento de áudio.
+&lt;/audio&gt;
+
+&lt;video controls&gt;
+    &lt;source src="video.mp4" type="video/mp4"&gt;
+    Seu navegador não suporta o elemento de vídeo.
+&lt;/video&gt;</code></pre>
+                <div class="result">
+                    <audio controls>
+                        <source src="audio.mp3" type="audio/mpeg">
+                        Seu navegador não suporta o elemento de áudio.
+                    </audio><br>
+                    <video controls>
+                        <source src="video.mp4" type="video/mp4">
+                        Seu navegador não suporta o elemento de vídeo.
+                    </video>
+                </div>
+            </article>
+        </section>
+
+        <!-- 6. Tabelas -->
+        <section>
+            <h2>6. Tabelas</h2>
+            <article>
+                <h3>&lt;table&gt;, &lt;tr&gt;, &lt;th&gt;, &lt;td&gt;</h3>
+                <p>Cria tabelas com linhas (<code>&lt;tr&gt;</code>), cabeçalhos (<code>&lt;th&gt;</code>) e células (<code>&lt;td&gt;</code>).</p>
+                <pre><code>&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Cabeçalho 1&lt;/th&gt;
+        &lt;th&gt;Cabeçalho 2&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Celula 1&lt;/td&gt;
+        &lt;td&gt;Celula 2&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+                <div class="result">
+                    <table>
+                        <tr>
+                            <th>Cabeçalho 1</th>
+                            <th>Cabeçalho 2</th>
+                        </tr>
+                        <tr>
+                            <td>Celula 1</td>
+                            <td>Celula 2</td>
+                        </tr>
+                    </table>
+                </div>
+            </article>
+        </section>
+
+        <!-- 7. Elementos Interativos e Gráficos -->
+        <section>
+            <h2>7. Elementos Interativos e Gráficos</h2>
+            <article>
+                <h3>&lt;details&gt;, &lt;summary&gt;, &lt;dialog&gt;, &lt;canvas&gt;, &lt;svg&gt;</h3>
+                <p>Esses elementos permitem interatividade e gráficos em HTML.</p>
+                <pre><code>&lt;details&gt;
+    &lt;summary&gt;Clique para expandir&lt;/summary&gt;
+    Aqui está o conteúdo expandido.
+&lt;/details&gt;
+
+&lt;canvas id="meuCanvas"&gt;Seu navegador não suporta o elemento canvas.&lt;/canvas&gt;</code></pre>
+                <div class="result">
+                    <details>
+                        <summary>Clique para expandir</summary>
+                        Aqui está o conteúdo expandido.
+                    </details>
+                    <br>
+                    <canvas id="meuCanvas">Seu navegador não suporta o elemento canvas.</canvas>
+                </div>
+            </article>
+        </section>
+
+        <!-- 8. Acessibilidade -->
+        <section>
+            <h2>8. Acessibilidade</h2>
+            <article>
+                <h3>&lt;img&gt; com atributo alt e atributos aria</h3>
+                <p>O atributo <code>alt</code> em imagens e os atributos <code>aria</code> melhoram a acessibilidade para leitores de tela e outros dispositivos de assistência.</p>
+                <pre><code>&lt;img src="imagem.jpg" alt="Descrição da imagem para leitores de tela"&gt;
+
+&lt;button aria-label="Fechar janela"&gt;X&lt;/button&gt;</code></pre>
+                <div class="result">
+                    <img src="https://via.placeholder.com/150" alt="Imagem Exemplo"><br>
+                    <button aria-label="Fechar janela">X</button>
+                </div>
+            </article>
+        </section>
+
+        <!-- 9. Elementos Sem Fechamento -->
+        <section>
+            <h2>9. Elementos Sem Fechamento</h2>
+            <article>
+                <h3>&lt;br&gt;, &lt;hr&gt;, &lt;img&gt;, &lt;meta&gt;</h3>
+                <p>Essas tags não possuem uma tag de fechamento e são usadas para quebra de linha, linha horizontal, imagens e metadados.</p>
+                <pre><code>&lt;br&gt; <!-- Quebra de linha -->
+&lt;hr&gt; <!-- Linha horizontal -->
+&lt;img src="imagem.jpg" alt="Imagem descritiva"&gt; <!-- Imagem -->
+&lt;meta name="description" content="Descrição da página"&gt; <!-- Metadados --></code></pre>
+                <div class="result no-result">[Exemplo: Quebra de linha e linha horizontal não visíveis aqui]</div>
+            </article>
+        </section>
+
+        <!-- 10. Elementos de Código -->
+        <section>
+            <h2>10. Elementos de Código</h2>
+            <article>
+                <h3>&lt;code&gt; e &lt;pre&gt;</h3>
+                <p>Cria blocos de código e texto pré-formatado.</p>
+                <pre><code>&lt;code&gt;document.write('Hello, World!');&lt;/code&gt;
+&lt;pre&gt;
+    function hello() {
+        console.log('Hello, World!');
+    }
+&lt;/pre&gt;</code></pre>
+                <div class="result">
+                    <code>document.write('Hello, World!');</code>
+                    <pre>
+    function hello() {
+        console.log('Hello, World!');
+    }
+                    </pre>
+                </div>
+            </article>
+        </section>
+    

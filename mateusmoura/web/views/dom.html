@@ -1,0 +1,190 @@
+<header>
+    <h1>DOM com JavaScript</h1>
+</header>
+        
+        <p>Este guia explica o que é o DOM e mostra várias maneiras de manipulá-lo usando JavaScript, com exemplos práticos para ajudar você a interagir com os elementos de uma página web.</p>
+
+        <!-- O que é o DOM? -->
+        <section>
+            <h2>1. O que é o DOM?</h2>
+            <article>
+                <p>O DOM (Document Object Model) é uma representação da estrutura de uma página HTML ou XML. Ele transforma a página em um modelo de objetos que podem ser manipulados usando JavaScript. Com o DOM, você pode alterar o conteúdo, a estrutura e o estilo de uma página web de forma dinâmica.</p>
+            </article>
+        </section>
+
+        <!-- Selecionando Elementos no DOM -->
+        <section>
+            <h2>2. Selecionando Elementos no DOM</h2>
+            <article>
+                <p>Para manipular o DOM, o primeiro passo é selecionar os elementos que você deseja modificar. Existem várias maneiras de fazer isso usando JavaScript.</p>
+
+                <h3>2.1 Selecionando Elementos por ID</h3>
+                <pre><code>// Seleciona um elemento pelo ID
+let elemento = document.getElementById("meuElemento");</code></pre>
+
+                <h3>2.2 Selecionando Elementos por Classe</h3>
+                <pre><code>// Seleciona todos os elementos com a classe "classeExemplo"
+let elementos = document.getElementsByClassName("classeExemplo");</code></pre>
+
+                <h3>2.3 Selecionando Elementos por Tag</h3>
+                <pre><code>// Seleciona todos os elementos <p>
+let paragrafos = document.getElementsByTagName("p");</code></pre>
+
+                <h3>2.4 Selecionando com Query Selector</h3>
+                <p><code>querySelector</code> permite selecionar o primeiro elemento que corresponde a um seletor CSS, enquanto <code>querySelectorAll</code> seleciona todos os elementos que correspondem ao seletor.</p>
+                <pre><code>// Seleciona o primeiro elemento com a classe .meuElemento
+let elemento = document.querySelector(".meuElemento");
+
+// Seleciona todos os elementos <div>
+let divs = document.querySelectorAll("div");</code></pre>
+            </article>
+        </section>
+
+        <!-- Modificando Conteúdo e Estilo -->
+        <section>
+            <h2>3. Modificando Conteúdo e Estilo</h2>
+            <article>
+                <p>Depois de selecionar os elementos, você pode alterar o conteúdo ou o estilo deles dinamicamente.</p>
+
+                <h3>3.1 Modificando Texto</h3>
+                <pre><code>// Seleciona um elemento e altera o seu texto
+let titulo = document.getElementById("titulo");
+titulo.textContent = "Novo título";</code></pre>
+
+                <h3>3.2 Modificando HTML Interno</h3>
+                <pre><code>// Modifica o HTML interno de um elemento
+let container = document.getElementById("container");
+container.innerHTML = "&lt;p&gt;Este é um novo parágrafo.&lt;/p&gt;";</code></pre>
+
+                <h3>3.3 Alterando o Estilo de um Elemento</h3>
+                <pre><code>// Altera o estilo CSS de um elemento
+let paragrafo = document.querySelector("p");
+paragrafo.style.color = "blue";
+paragrafo.style.fontSize = "20px";</code></pre>
+            </article>
+        </section>
+
+        <!-- Criando e Removendo Elementos -->
+        <section>
+            <h2>4. Criando e Removendo Elementos</h2>
+            <article>
+                <p>Além de modificar elementos existentes, você pode criar novos elementos ou remover elementos da página.</p>
+
+                <h3>4.1 Criando um Novo Elemento</h3>
+                <pre><code>// Cria um novo elemento <div> e adiciona à página
+let novoDiv = document.createElement("div");
+novoDiv.textContent = "Este é um novo div";
+document.body.appendChild(novoDiv);</code></pre>
+
+                <h3>4.2 Removendo um Elemento</h3>
+                <pre><code>// Remove um elemento da página
+let elementoParaRemover = document.getElementById("meuElemento");
+elementoParaRemover.remove();</code></pre>
+            </article>
+        </section>
+
+        <!-- Manipulação de Atributos -->
+        <section>
+            <h2>5. Manipulação de Atributos</h2>
+            <article>
+                <p>Você pode modificar atributos de elementos, como o <code>src</code> de uma imagem ou o <code>href</code> de um link.</p>
+
+                <h3>5.1 Modificando Atributos</h3>
+                <pre><code>// Altera o atributo src de uma imagem
+let imagem = document.getElementById("minhaImagem");
+imagem.setAttribute("src", "nova-imagem.jpg");</code></pre>
+
+                <h3>5.2 Obtendo Atributos</h3>
+                <pre><code>// Obtém o valor de um atributo
+let link = document.querySelector("a");
+let href = link.getAttribute("href");
+console.log(href);</code></pre>
+
+                <h3>5.3 Removendo Atributos</h3>
+                <pre><code>// Remove um atributo de um elemento
+let input = document.getElementById("meuInput");
+input.removeAttribute("disabled");</code></pre>
+            </article>
+        </section>
+
+        <!-- Eventos no DOM -->
+        <section>
+            <h2>6. Trabalhando com Eventos</h2>
+            <article>
+                <p>Eventos permitem que você adicione interatividade às páginas, como responder a cliques, teclas pressionadas e outros tipos de interações do usuário.</p>
+
+                <h3>6.1 Adicionando um Evento de Clique</h3>
+                <pre><code>// Seleciona o botão e adiciona um evento de clique
+let botao = document.getElementById("botao");
+botao.addEventListener("click", function() {
+    alert("Botão clicado!");
+});</code></pre>
+
+                <h3>6.2 Evento de Tecla Pressionada</h3>
+                <pre><code>// Executa uma função quando uma tecla é pressionada
+document.addEventListener("keydown", function(event) {
+    console.log("Tecla pressionada: " + event.key);
+});</code></pre>
+
+                <h3>6.3 Removendo Eventos</h3>
+                <pre><code>// Função de evento
+function alerta() {
+    alert("Evento disparado!");
+}
+
+// Adiciona o evento
+botao.addEventListener("click", alerta);
+
+// Remove o evento
+botao.removeEventListener("click", alerta);</code></pre>
+            </article>
+        </section>
+
+        <!-- Manipulação Avançada: Traversing o DOM -->
+        <section>
+            <h2>7. Navegando no DOM</h2>
+            <article>
+                <p>Você pode navegar entre os nós de elementos, permitindo acessar elementos "parent" (pai), "child" (filho), ou "siblings" (irmãos).</p>
+
+                <h3>7.1 Acessando o Elemento Pai</h3>
+                <pre><code>// Acessa o elemento pai de um parágrafo
+let paragrafo = document.querySelector("p");
+let pai = paragrafo.parentElement;
+console.log(pai);</code></pre>
+
+                <h3>7.2 Acessando os Elementos Filhos</h3>
+                <pre><code>// Acessa todos os filhos de um div
+let div = document.querySelector("div");
+let filhos = div.children;
+console.log(filhos);</code></pre>
+
+                <h3>7.3 Acessando o Próximo Irmão</h3>
+                <pre><code>// Acessa o próximo irmão de um elemento
+let primeiroItem = document.querySelector("li");
+let proximoItem = primeiroItem.nextElementSibling;
+console.log(proximoItem);</code></pre>
+            </article>
+        </section>
+
+        <!-- Comandos Úteis para Manipulação do DOM -->
+        <section>
+            <h2>8. Comandos Úteis para Manipulação do DOM</h2>
+            <article>
+                <h3><code>document.createElement()</code> - Criar um Elemento</h3>
+                <p>Cria um novo elemento HTML, que pode ser adicionado ao DOM.</p>
+                <pre><code>let novoParagrafo = document.createElement("p");
+novoParagrafo.textContent = "Este é um novo parágrafo";
+document.body.appendChild(novoParagrafo);</code></pre>
+
+                <h3><code>element.remove()</code> - Remover um Elemento</h3>
+                <p>Remove um elemento do DOM.</p>
+                <pre><code>let elemento = document.getElementById("meuElemento");
+elemento.remove();</code></pre>
+
+                <h3><code>element.setAttribute()</code> - Modificar Atributos</h3>
+                <p>Modifica ou define um novo atributo para o elemento.</p>
+                <pre><code>let link = document.querySelector("a");
+link.setAttribute("href", "https://www.example.com");</code></pre>
+            </article>
+        </section>
+   
