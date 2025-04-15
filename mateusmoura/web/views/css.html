@@ -172,4 +172,142 @@ button:hover {
                 </div>
             </article>
         </section>
-   
+
+        <section>
+    <h2>5. Outras Propriedades Comuns</h2>
+    <article>
+        <h3>Exemplo de Layout com Flexbox e Alinhamento de Texto</h3>
+        <pre><code>/* Exemplo de uso do display, justify-content e align-items */
+.container {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center;    /* Centraliza verticalmente */
+    height: 200px;          /* Define a altura do container */
+    background-color: #f1f1f1;
+}
+
+/* Exemplo de alinhamento de texto */
+.texto {
+    text-align: center;
+    font-size: 18px;
+    color: #333;
+}</code></pre>
+        <div class="result">
+            <div class="container">
+                <div class="texto">Exemplo centralizado com Flexbox e texto alinhado</div>
+            </div>
+        </div>
+    </article>
+</section>
+
+<section>
+    <h2>5. Outras Propriedades Comuns</h2>
+    
+    <article>
+        <h3>Layout com Flexbox</h3>
+        <pre><code>/* Exemplo de layout com Flexbox */
+.container-flex {
+    display: flex;
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    align-items: center;     /* Centraliza os itens verticalmente */
+    height: 200px;           /* Define a altura do container */
+    background-color: #f1f1f1; /* Cor de fundo do container */
+}</code></pre>
+        <p>
+            Neste exemplo, utilizamos o Flexbox para centralizar os elementos tanto na horizontal quanto na vertical. A propriedade <code>display: flex</code> transforma o container em um flex container; <code>justify-content</code> alinha os itens no eixo principal, e <code>align-items</code> ajusta o alinhamento no eixo cruzado.
+        </p>
+        <div class="result">
+            <div class="container-flex">
+                <div class="texto-flex" style="text-align: center;">Itens Flex</div>
+            </div>
+        </div>
+    </article>
+    
+    <article>
+        <h3>Alinhamento de Texto</h3>
+        <pre><code>/* Exemplo de alinhamento de texto */
+.titulo {
+    text-align: center; /* Centraliza o texto */
+    font-size: 24px;
+    color: #555;
+}</code></pre>
+        <p>
+            A propriedade <code>text-align</code> controla o alinhamento horizontal do texto dentro de um elemento. Neste exemplo, o texto é centralizado.
+        </p>
+        <div class="result">
+            <h1 class="titulo">Texto Centralizado</h1>
+        </div>
+    </article>
+    
+    <article>
+        <h3>Uso Avançado do Display com Grid</h3>
+        <pre><code>/* Exemplo com display: grid */
+.container-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Cria três colunas iguais */
+    gap: 10px; /* Espaçamento entre os itens */
+    background-color: #e0e0e0; /* Cor de fundo do container */
+    padding: 10px;
+}</code></pre>
+        <p>
+            O <code>display: grid</code> permite criar layouts complexos com pouco código. Aqui, definimos um grid de três colunas iguais usando a função <code>repeat</code> e <code>1fr</code> para repartir igualmente o espaço.
+        </p>
+        <div class="result">
+            <div class="container-grid">
+                <div style="background-color:#3498db; padding:10px;">Item 1</div>
+                <div style="background-color:#2ecc71; padding:10px;">Item 2</div>
+                <div style="background-color:#e74c3c; padding:10px;">Item 3</div>
+            </div>
+        </div>
+    </article>
+    
+    <article>
+        <h3>Layout Responsivo com Flexbox</h3>
+        <pre><code>/* Exemplo combinando propriedades para um layout responsivo */
+.container-responsive {
+    display: flex;
+    flex-wrap: wrap;               /* Permite que os itens quebrem para a próxima linha */
+    justify-content: space-around; /* Distribui o espaço igualmente entre os itens */
+    align-items: center;           /* Centraliza itens verticalmente */
+    height: auto;                  /* Altura ajustável conforme o conteúdo */
+    background-color: #fafafa;
+    padding: 20px;
+}
+
+.item {
+    flex: 1 1 200px;   /* Itens flexíveis com tamanho base de 200px */
+    margin: 10px;
+    background-color: #ddd;
+    padding: 20px;
+    text-align: center;
+}</code></pre>
+        <p>
+            Este exemplo mostra como combinar as propriedades <code>display: flex</code>, <code>flex-wrap</code>, <code>justify-content</code> e <code>align-items</code> para criar um layout responsivo que se adapta ao tamanho da tela. A propriedade <code>flex: 1 1 200px</code> define a capacidade de crescimento e encolhimento dos itens.
+        </p>
+        <div class="result">
+            <div class="container-responsive">
+                <div class="item">Item 1</div>
+                <div class="item">Item 2</div>
+                <div class="item">Item 3</div>
+            </div>
+        </div>
+    </article>
+    
+    <article>
+        <h3>Exemplos Complementares</h3>
+        <pre><code>/* Utilizando propriedades de altura, display e background-color */
+.box-destaque {
+    display: block;          /* Exibe o elemento como bloco */
+    height: 150px;           /* Define altura fixa */
+    background-color: #ffeb3b; /* Define uma cor de fundo de destaque */
+    line-height: 150px;      /* Alinha verticalmente o texto */
+    text-align: center;      /* Centraliza o texto horizontalmente */
+}</code></pre>
+        <p>
+            Nesta última demonstração, combinamos as propriedades <code>display</code>, <code>height</code>, <code>background-color</code> e <code>text-align</code> para criar um bloco de destaque com um conteúdo centralizado. Essa abordagem pode ser útil para criar banners, chamadas de atenção ou seções especiais na página.
+        </p>
+        <div class="result">
+            <div class="box-destaque">Bloco de Destaque</div>
+        </div>
+    </article>
+</section>
