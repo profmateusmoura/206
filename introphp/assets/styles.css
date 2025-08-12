@@ -1,0 +1,388 @@
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #2c3e50;
+    margin-top: 0;
+    font-size: 1.3rem;
+}
+
+/* Estilos do menu principal */
+.menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.menu-item {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.menu-item h2 {
+    margin-top: 0;
+}
+
+.menu-item p {
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Estilos de formulários */
+form {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+select {
+    background-color: white;
+}
+
+.nota-info,
+.info {
+    font-size: 0.8rem;
+    color: #777;
+    margin-top: 5px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Links e botões */
+.botoes {
+    display: flex;
+    gap: 10px;
+}
+
+.botao {
+    display: inline-block;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    text-align: center;
+    flex: 1;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.botao:hover {
+    background-color: #2980b9;
+}
+
+.voltar {
+    display: inline-block;
+    margin-top: 20px;
+    color: #3498db;
+    text-decoration: none;
+}
+
+.voltar:hover {
+    text-decoration: underline;
+}
+
+a.menu-link {
+    display: inline-block;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+a.menu-link:hover {
+    background-color: #2980b9;
+}
+
+/* Estilos de resultados */
+.resultado {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.info {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+/* Elementos específicos para Verificador de Eleitor */
+.status {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 20px;
+}
+
+.obrigatorio {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.facultativo {
+    background-color: #f39c12;
+    color: white;
+}
+
+.nao-eleitor {
+    background-color: #7f8c8d;
+    color: white;
+}
+
+.campo {
+    margin-bottom: 10px;
+}
+
+.campo strong {
+    font-weight: bold;
+    color: #555;
+}
+
+/* Elementos específicos para Calculadora */
+.operacao {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.operacao:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.valor {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #3498db;
+}
+
+/* Elementos específicos para Conversor de Temperatura */
+.original {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    color: #2c3e50;
+}
+
+.conversao {
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 6px;
+    background-color: #f8f9fa;
+}
+
+/* Elementos específicos para Verificador de Notas */
+.notas {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+    padding: 10px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.nota {
+    text-align: center;
+    flex: 1;
+}
+
+.nota h3 {
+    margin: 0 0 10px 0;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.nota-valor {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #3498db;
+}
+
+.media {
+    text-align: center;
+    padding: 10px;
+    margin: 15px 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.situacao {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 20px;
+}
+
+.reprovado {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.estudos-orientados {
+    background-color: #f39c12;
+    color: white;
+}
+
+.aprovado {
+    background-color: #2ecc71;
+    color: white;
+}
+
+/* Elementos específicos para Fibonacci */
+.sequencia {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.numero {
+    background-color: #3498db;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-weight: bold;
+    min-width: 30px;
+    text-align: center;
+}
+
+/* Estilos para a Música dos Patinhos */
+.musica-container {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    border: 1px solid #e9ecef;
+}
+
+.estrofe {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #ddd;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fade-in 1s forwards;
+}
+
+.estrofe:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.verso {
+    margin: 8px 0;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: #333;
+}
+
+.loading {
+    text-align: center;
+    color: #777;
+    padding: 20px;
+    font-style: italic;
+}
+
+@keyframes fade-in {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Adicionando animação para os patinhos */
+.estrofe.fade-in {
+    animation: fade-in 1s forwards;
+}
+
+/* Media queries para responsividade */
+@media (max-width: 600px) {
+    .notas {
+        flex-direction: column;
+    }
+    
+    .nota {
+        margin-bottom: 10px;
+    }
+    
+    .botoes {
+        flex-direction: column;
+    }
+    
+    .botao {
+        margin-bottom: 10px;
+    }
+}
