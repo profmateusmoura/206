@@ -1,0 +1,266 @@
+<header>
+    <h1>Consumo de APIs com JavaScript</h1>
+</header>
+
+<section>
+    <h2>O que é Consumo de API?</h2>
+    <article>
+        <p>Consumir uma API significa fazer requisições HTTP para obter, enviar ou manipular dados de um servidor externo. É como "conversar" com outros sistemas através da internet.</p>
+        
+        <h3>Como funciona:</h3>
+        <ol>
+            <li><strong>Requisição</strong>: Seu código JavaScript faz uma solicitação para um endpoint (URL) da API</li>
+            <li><strong>Processamento</strong>: O servidor da API processa sua solicitação</li>
+            <li><strong>Resposta</strong>: O servidor retorna os dados (geralmente em JSON)</li>
+            <li><strong>Uso</strong>: Você usa os dados recebidos em sua aplicação</li>
+        </ol>
+    </article>
+</section>
+
+<section>
+    <h2>Fetch API - A Ferramenta Principal</h2>
+    <article>
+        <p>A <strong>Fetch API</strong> é a forma moderna de fazer requisições HTTP em JavaScript:</p>
+        
+        <div class="code-example">
+// Estrutura básica do fetch
+fetch('URL_DA_API')
+  .then(response => response.json())  // Converter para JSON
+  .then(data => {
+    // Usar os dados aqui
+    console.log(data);
+  })
+  .catch(error => {
+    // Tratar erros aqui
+    console.error('Erro:', error);
+  });
+        </div>
+
+        <h3>Versão moderna com async/await:</h3>
+        <div class="code-example">
+async function consumirAPI() {
+  try {
+    const response = await fetch('URL_DA_API');
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Erro ao consumir API:', error);
+  }
+}
+        </div>
+    </article>
+</section>
+
+<section>
+    <h2>Tutorial Completo: API ViaCEP</h2>
+    <article>
+        <p>A <strong>ViaCEP</strong> é uma API gratuita brasileira que permite consultar informações de endereço através do CEP. É perfeita para aprender consumo de APIs!</p>
+        
+        <h3>🔗 Endpoints da ViaCEP:</h3>
+        <div class="code-example">
+// Formato básico
+https://viacep.com.br/ws/{CEP}/json/
+
+// Exemplo real
+https://viacep.com.br/ws/01310100/json/
+        </div>
+
+        <h3>📋 Estrutura da Resposta:</h3>
+        <div class="code-example">
+{
+  "cep": "01310-100",
+  "logradouro": "Avenida Paulista",
+  "complemento": "",
+  "bairro": "Bela Vista",
+  "localidade": "São Paulo",
+  "uf": "SP",
+  "ibge": "3550308",
+  "gia": "1004",
+  "ddd": "11",
+  "siafi": "7107"
+}
+        </div>
+    </article>
+</section>
+
+<section>
+    <h2>🎯 Implementação Prática - Passo a Passo</h2>
+    
+    <div class="api-demo">
+        <h3>Passo 1: Criar a Função de Busca</h3>
+        <div class="code-example">
+async function buscarCEP(cep) {
+  // 1. Limpar o CEP (remover caracteres especiais)
+  const cepLimpo = cep.replace(/\D/g, '');
+  
+  // 2. Validar o CEP (8 dígitos)
+  if (cepLimpo.length !== 8) {
+    throw new Error('CEP deve ter 8 dígitos');
+  }
+  
+  // 3. Fazer a requisição
+  const response = await fetch(`https://viacep.com.br/ws/${cepLimpo}/json/`);
+  const data = await response.json();
+  
+  // 4. Verificar se o CEP existe
+  if (data.erro) {
+    throw new Error('CEP não encontrado');
+  }
+  
+  return data;
+}
+        </div>
+    </div>
+
+    <div class="api-demo">
+        <h3>Passo 2: Teste a Função</h3>
+        <p>Digite um CEP para testar nossa implementação:</p>
+        <input type="text" id="cep-input" placeholder="Digite o CEP (ex: 01310-100)" maxlength="9">
+        <button onclick="testarBuscaCEP()">🔍 Buscar CEP</button>
+        <div id="cep-result" class="result-box" style="display: none;"></div>
+    </div>
+
+    <div class="api-demo">
+        <h3>Passo 3: Formulário Completo de Endereço</h3>
+        <p>Vamos criar um formulário que preenche automaticamente os campos ao digitar o CEP:</p>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; max-width: 500px;">
+            <input type="text" id="form-cep" placeholder="CEP" maxlength="9" onblur="preencherEndereco()">
+            <input type="text" id="form-logradouro" placeholder="Logradouro" readonly>
+            <input type="text" id="form-bairro" placeholder="Bairro" readonly>
+            <input type="text" id="form-cidade" placeholder="Cidade" readonly>
+            <input type="text" id="form-uf" placeholder="UF" readonly style="grid-column: span 1;">
+            <input type="text" id="form-numero" placeholder="Número">
+        </div>
+        <button onclick="limparFormulario()">🗑️ Limpar Formulário</button>
+    </div>
+</section>
+
+<section>
+    <h2>🛠️ Funcionalidades Avançadas</h2>
+    
+    <div class="api-demo">
+        <h3>Busca por Cidade e Logradouro</h3>
+        <p>A ViaCEP também permite buscar CEPs por endereço:</p>
+        <div class="code-example">
+// Formato: https://viacep.com.br/ws/{UF}/{cidade}/{logradouro}/json/
+https://viacep.com.br/ws/SP/São Paulo/Paulista/json/
+        </div>
+        
+        <input type="text" id="cidade-input" placeholder="Cidade (ex: São Paulo)">
+        <input type="text" id="logradouro-input" placeholder="Logradouro (ex: Paulista)">
+        <select id="uf-select">
+            <option value="">Selecione a UF</option>
+            <option value="SP">SP</option>
+            <option value="RJ">RJ</option>
+            <option value="MG">MG</option>
+            <option value="RS">RS</option>
+            <option value="PR">PR</option>
+            <option value="SC">SC</option>
+        </select>
+        <button onclick="buscarPorEndereco()">🏠 Buscar por Endereço</button>
+        <div id="endereco-result" class="result-box" style="display: none;"></div>
+    </div>
+</section>
+
+<section>
+    <h2>⚠️ Tratamento de Erros e Boas Práticas</h2>
+    
+    <div class="api-demo">
+        <h3>Principais Erros ao Consumir APIs:</h3>
+        <ul>
+            <li><strong>CEP Inválido:</strong> Formato incorreto ou inexistente</li>
+            <li><strong>Conexão:</strong> Sem internet ou servidor fora do ar</li>
+            <li><strong>CORS:</strong> Problemas de política de mesma origem</li>
+            <li><strong>Rate Limit:</strong> Muitas requisições em pouco tempo</li>
+        </ul>
+        
+        <h3>💡 Dicas de Boas Práticas:</h3>
+        <div class="code-example">
+// ✅ CORRETO - Com tratamento completo de erros
+async function buscarCEPSeguro(cep) {
+  try {
+    // Validação local primeiro
+    const cepLimpo = cep.replace(/\D/g, '');
+    if (cepLimpo.length !== 8) {
+      return { erro: 'CEP deve ter 8 dígitos' };
+    }
+    
+    // Requisição com timeout
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 5000);
+    
+    const response = await fetch(
+      `https://viacep.com.br/ws/${cepLimpo}/json/`,
+      { signal: controller.signal }
+    );
+    
+    clearTimeout(timeoutId);
+    
+    if (!response.ok) {
+      throw new Error(`Erro HTTP: ${response.status}`);
+    }
+    
+    const data = await response.json();
+    
+    if (data.erro) {
+      return { erro: 'CEP não encontrado' };
+    }
+    
+    return { sucesso: true, dados: data };
+    
+  } catch (error) {
+    if (error.name === 'AbortError') {
+      return { erro: 'Timeout: requisição muito lenta' };
+    }
+    return { erro: `Erro na consulta: ${error.message}` };
+  }
+}
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>🚀 Projeto Prático: Localizador de Endereços</h2>
+    <article>
+        <p>Vamos criar um projeto completo que demonstra o uso da API ViaCEP:</p>
+        
+        <div class="api-demo">
+            <h3>📍 Localizador Completo</h3>
+            <div style="background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                <h4>Buscar por CEP</h4>
+                <input type="text" id="localizador-cep" placeholder="Digite o CEP" maxlength="9" style="width: 200px;">
+                <button onclick="buscarCompleto()">🔍 Localizar</button>
+                
+                <div id="localizador-result" style="margin-top: 20px;"></div>
+                
+                <h4 style="margin-top: 30px;">Histórico de Buscas</h4>
+                <div id="historico" style="max-height: 200px; overflow-y: auto; border: 1px solid #ddd; padding: 10px; border-radius: 4px;">
+                    <em>Nenhuma busca realizada ainda...</em>
+                </div>
+                <button onclick="limparHistorico()">🗑️ Limpar Histórico</button>
+            </div>
+        </div>
+    </article>
+</section>
+
+<section>
+    <h2>📚 Outras APIs Brasileiras Úteis</h2>
+    <article>
+        <div class="code-example">
+🏦 BrasilAPI - https://brasilapi.com.br/
+   • CEPs, CNPJs, feriados, bancos, etc.
+
+📱 IBGE - https://servicodados.ibge.gov.br/
+   • Dados geográficos e estatísticos
+
+💰 AwesomeAPI - https://docs.awesomeapi.com.br/
+   • Cotações de moedas, criptomoedas
+
+🎲 JSONPlaceholder - https://jsonplaceholder.typicode.com/
+   • API para testes e protótipos
+        </div>
+    </article>
+</section>
+
+
