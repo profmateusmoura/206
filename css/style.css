@@ -1,97 +1,310 @@
+/* Importar fonte moderna */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 /* Estilos Gerais */
-body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    background-color: #4c7d96;
-    color: #333;
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #333;
     line-height: 1.6;
+    min-height: 100vh;
 }
 
 h1, h2, h3, h4 {
-    color: #2b3752;
-    margin: 0;
+    color: #1a202c;
     font-weight: 600;
+    margin-bottom: 1rem;
 }
 
-/* Estilos do Header */
-header {
-    background-color: #4c7d96;
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+
+/* Header Principal */
+.header-main {
+    background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
     color: white;
-    padding: 15px 20px;
+    padding: 1rem 2rem;
     text-align: center;
     position: fixed;
     top: 0;
-    left: 0; /* Garante que o header comece na borda esquerda */
-    right: 0; /* Garante que o header termine na borda direita */
-    font-size: 22px;
+    left: 0;
+    right: 0;
     z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.header-main h1 {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 /* Layout Principal */
 .container {
     display: flex;
-    padding: 20px;
-    margin-top: 80px; /* Ajuste para não cortar o conteúdo */
-    min-height: calc(100vh - 80px); /* Faz o layout ocupar a altura total da tela */
+    margin-top: 80px;
+    min-height: calc(100vh - 80px);
+    gap: 2rem;
+    padding: 2rem;
 }
 
-/* Menu Lateral (Aside) */
+/* Menu Lateral Moderno e Compacto */
 aside.menu {
     width: 220px;
-    background-color: #4c7d96;
-    padding: 20px;
-    height: calc(100vh - 80px);
-    position: fixed;
-    top: 80px;
-    left: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 15px;
+    padding: 1rem;
+    height: fit-content;
+    max-height: calc(100vh - 120px);
     overflow-y: auto;
+    position: sticky;
+    top: 100px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Título do Menu Compacto */
+.menu-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1a202c;
+    margin-bottom: 1rem;
+    text-align: center;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(102, 126, 234, 0.2);
 }
 
 aside.menu nav ul {
     list-style: none;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
 }
 
 aside.menu nav ul li {
-    margin-bottom: 12px;
+    position: relative;
 }
 
 aside.menu nav ul li a {
-    color: white;
+    color: #4a5568;
     text-decoration: none;
-    padding: 12px;
-    display: block;
-    background-color: #384850;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    font-size: 16px;
+    padding: 0.6rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 500;
+    font-size: 0.85rem;
+    border: 1px solid rgba(102, 126, 234, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+aside.menu nav ul li a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    transition: width 0.3s ease;
+    z-index: -1;
 }
 
 aside.menu nav ul li a:hover {
-    background-color: #6d7984;
-    transform: translateX(5px);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.25);
+    border-color: rgba(102, 126, 234, 0.3);
+}
+
+aside.menu nav ul li a:hover::before {
+    width: 100%;
+}
+
+aside.menu nav ul li a.active {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+/* Ícones para os links do menu */
+/* Scrollbar customizada para o menu */
+aside.menu::-webkit-scrollbar {
+    width: 4px;
+}
+
+aside.menu::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+}
+
+aside.menu::-webkit-scrollbar-thumb {
+    background: rgba(102, 126, 234, 0.3);
+    border-radius: 2px;
+}
+
+aside.menu::-webkit-scrollbar-thumb:hover {
+    background: rgba(102, 126, 234, 0.5);
 }
 
 /* Área de Conteúdo Principal */
 .content {
-    margin-left: 250px;
-    padding: 20px;
-    background-color: white;
-    flex-grow: 1;
-    border-radius: 8px;
+    flex: 1;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    min-height: 600px;
+    overflow-y: auto;
+}
+
+.content header {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 2rem;
+    margin: -3rem -3rem 2rem -3rem;
+    border-radius: 20px 20px 0 0;
+    text-align: center;
+    position: relative;
+}
+
+.content header::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 2px;
+}
+
+.content header h1 {
+    color: white;
+    margin: 0;
+    font-size: 2.2rem;
+    font-weight: 700;
 }
 
 .content h2 {
-    margin-bottom: 20px;
-    color: #4a6fa5;
-    font-size: 28px;
+    color: #1a202c;
+    font-size: 1.8rem;
+    margin: 2rem 0 1rem 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(102, 126, 234, 0.2);
+}
+
+.content h3 {
+    color: #2d3748;
+    font-size: 1.4rem;
+    margin: 1.5rem 0 1rem 0;
 }
 
 .content p {
-    font-size: 18px;
-    color: #666;
-    margin-bottom: 20px;
+    font-size: 1.1rem;
+    color: #4a5568;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.content section {
+    margin-bottom: 3rem;
+}
+
+.content article {
+    background: rgba(247, 250, 252, 0.6);
+    padding: 2rem;
+    border-radius: 15px;
+    margin: 1.5rem 0;
+    border-left: 4px solid #667eea;
+}
+
+/* Página Inicial - Features Grid */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.feature-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(247, 250, 252, 0.9));
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(102, 126, 234, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
+    border-color: rgba(102, 126, 234, 0.3);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.feature-card h3 {
+    color: #1a202c;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.feature-card p {
+    color: #4a5568;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.cta-section {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 3rem;
+    border-radius: 20px;
+    text-align: center;
+    margin: 3rem 0;
+    box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
+}
+
+.cta-section h3 {
+    color: white;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+}
+
+.cta-section p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    margin: 0;
 }
 
 /* Estilos de Código */
@@ -269,21 +482,150 @@ input[type="text"]:focus, textarea:focus {
     white-space: pre-wrap;
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
+/* Responsividade Melhorada */
+@media (max-width: 1200px) {
+    .container {
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    aside.menu {
+        width: 200px;
+    }
+    
+    .content {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 968px) {
     .container {
         flex-direction: column;
+        margin-top: 100px;
     }
-
+    
     aside.menu {
         width: 100%;
-        height: auto;
         position: relative;
-        padding: 10px;
-        margin-left: 0;
+        top: auto;
+        margin-bottom: 2rem;
     }
-
+    
+    .menu-title {
+        text-align: left;
+    }
+    
+    aside.menu nav ul {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 0.5rem;
+    }
+    
     .content {
-        margin-left: 0;
+        padding: 2rem;
+    }
+    
+    .features-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-main h1 {
+        font-size: 1.4rem;
+    }
+    
+    .container {
+        padding: 0.5rem;
+        margin-top: 90px;
+    }
+    
+    .content {
+        padding: 1.5rem;
+        border-radius: 15px;
+    }
+    
+    .content header {
+        margin: -1.5rem -1.5rem 1.5rem -1.5rem;
+        padding: 1.5rem;
+        border-radius: 15px 15px 0 0;
+    }
+    
+    .content header h1 {
+        font-size: 1.8rem;
+    }
+    
+    aside.menu nav ul {
+        grid-template-columns: 1fr;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .feature-card {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-main {
+        padding: 0.8rem 1rem;
+    }
+    
+    .header-main h1 {
+        font-size: 1.2rem;
+    }
+    
+    .container {
+        margin-top: 80px;
+    }
+    
+    .content {
+        padding: 1rem;
+    }
+    
+    .content header {
+        margin: -1rem -1rem 1rem -1rem;
+        padding: 1rem;
+    }
+    
+    .content header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .cta-section {
+        padding: 2rem 1rem;
+    }
+}
+
+/* Animações e Transições */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.content {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Scroll suave */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Melhorias na acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }

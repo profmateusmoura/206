@@ -17,8 +17,18 @@ document.addEventListener("DOMContentLoaded", function () {
             })
             .then(data => {
                 console.log('Dados recebidos para', page, '- Tamanho:', data.length);
-                content.innerHTML = data;
-                console.log('Página carregada com sucesso:', page);
+                
+                // Animação de saída
+                content.style.opacity = '0.5';
+                content.style.transform = 'translateY(10px)';
+                
+                setTimeout(() => {
+                    content.innerHTML = data;
+                    // Animação de entrada
+                    content.style.opacity = '1';
+                    content.style.transform = 'translateY(0)';
+                    console.log('Página carregada com sucesso:', page);
+                }, 150);
             })
             .catch(error => {
                 console.error('ERRO ao carregar página:', page, '- Erro:', error);
@@ -32,6 +42,11 @@ document.addEventListener("DOMContentLoaded", function () {
             event.preventDefault();
             const page = this.getAttribute("data-page");
 
+            // Remove classe active de todos os links
+            links.forEach(l => l.classList.remove('active'));
+            // Adiciona classe active ao link clicado
+            this.classList.add('active');
+
             if (page) {
                 loadPage(page);
             } else {
@@ -39,6 +54,11 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
+
+    // Adicionar animação de entrada suave ao conteúdo
+    if (content) {
+        content.style.transition = 'all 0.3s ease';
+    }
 });
 
 // Variável para armazenar o histórico de buscas
